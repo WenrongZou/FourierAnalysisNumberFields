@@ -1,0 +1,89 @@
+\documentclass[11pt, a4paper]{scrreprt}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{lmodern}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{amsmath, amsthm, amssymb, amsfonts, mathtools, mathrsfs, stmaryrd}
+\usepackage{bbm}
+\usepackage{tikz-cd}
+\usepackage{enumitem}
+\usepackage{xcolor}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue!50!black,
+    citecolor=green!40!black,
+    urlcolor=blue!50!black
+}
+\usepackage[capitalise, nameinlink]{cleveref}
+
+%% ---------------------------------------------------------------------
+%% Theorem environments
+%% ---------------------------------------------------------------------
+
+% Exercises are numbered <chapter>.<n>, matching the book.
+% Usage:
+%   \begin{exercise}      -> next number in this chapter
+%   \begin{exercise}[7]   -> jump to Exercise <chapter>.7 (for skipped ones)
+\theoremstyle{definition}
+\newtheorem{exerciseinner}{Exercise}[chapter]
+\newenvironment{exercise}[1][]{%
+  \if\relax\detokenize{#1}\relax\else
+    \setcounter{exerciseinner}{\numexpr#1-1\relax}%
+  \fi
+  \begin{exerciseinner}}{\end{exerciseinner}}
+\crefname{exerciseinner}{Exercise}{Exercises}
+
+\newenvironment{solution}{\begin{proof}[Solution]}{\end{proof}}
+
+% Auxiliary results used inside solutions
+\theoremstyle{plain}
+\newtheorem{lemma}{Lemma}[chapter]
+\newtheorem{proposition}[lemma]{Proposition}
+\newtheorem{corollary}[lemma]{Corollary}
+\newtheorem*{claim}{Claim}
+\theoremstyle{definition}
+\newtheorem{definition}[lemma]{Definition}
+\newtheorem{example}[lemma]{Example}
+\theoremstyle{remark}
+\newtheorem{remark}[lemma]{Remark}
+\newtheorem*{notation}{Notation}
+
+\numberwithin{equation}{chapter}
+
+\input{macros}
+
+%% ---------------------------------------------------------------------
+
+\title{Exercises in \emph{Fourier Analysis on Number Fields}}
+\subtitle{Solutions to the exercises of Ramakrishnan--Valenza}
+\author{Wenrong Zou}
+\date{\today}
+
+% Uncomment to compile only selected chapters (faster):
+% \includeonly{chapters/ch3-duality}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\include{chapters/ch1-topological-groups}
+\include{chapters/ch2-representation-theory}
+\include{chapters/ch3-duality}
+\include{chapters/ch4-arithmetic-fields}
+\include{chapters/ch5-adeles-ideles}
+\include{chapters/ch6-class-field-theory}
+\include{chapters/ch7-tates-thesis}
+
+\begin{thebibliography}{RV99}
+\bibitem[RV99]{RV}
+  D.~Ramakrishnan and R.~J.~Valenza,
+  \emph{Fourier Analysis on Number Fields},
+  Graduate Texts in Mathematics \textbf{186}, Springer-Verlag, New York, 1999.
+\end{thebibliography}
+
+\end{document}

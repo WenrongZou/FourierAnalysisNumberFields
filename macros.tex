@@ -1,0 +1,69 @@
+%% Math macros (naming follows thesis_macros.tex)
+
+% Blackboard bold
+\def\AAA{\mathbb{A}}   % adeles
+\def\II{\mathbb{I}}    % ideles
+\def\CC{\mathbb{C}}
+\def\FF{\mathbb{F}}
+\def\NN{\mathbb{N}}
+\def\QQ{\mathbb{Q}}
+\def\RR{\mathbb{R}}
+\def\TT{\mathbb{T}}
+\def\ZZ{\mathbb{Z}}
+\def\bbone{\mathbbm{1}}
+
+% Calligraphic
+\def\calA{\mathcal{A}}
+\def\calB{\mathcal{B}}
+\def\calC{\mathcal{C}}
+\def\calF{\mathcal{F}}
+\def\calH{\mathcal{H}}
+\def\calL{\mathcal{L}}
+\def\calO{\mathcal{O}}
+\def\calS{\mathcal{S}}
+
+% Fraktur
+\def\gotha{\mathfrak{a}}
+\def\gothb{\mathfrak{b}}
+\def\gothc{\mathfrak{c}}
+\def\gothd{\mathfrak{d}}
+\def\gothf{\mathfrak{f}}
+\def\gothm{\mathfrak{m}}
+\def\gotho{\mathfrak{o}}
+\def\gothp{\mathfrak{p}}
+\def\gothq{\mathfrak{q}}
+\def\gothP{\mathfrak{P}}
+\def\gothQ{\mathfrak{Q}}
+
+% Operators
+\def\id{\mathrm{id}}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Gal}{Gal}
+\DeclareMathOperator{\Nm}{N}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\Cl}{Cl}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\vol}{vol}
+\DeclareMathOperator{\ord}{ord}
+\DeclareMathOperator{\disc}{disc}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\Res}{Res}
+\DeclareMathOperator{\Span}{Span}
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+
+% Analysis
+\newcommand{\dd}{\mathop{}\!\mathrm{d}}          % \int f(x) \dd x
+\newcommand{\dual}[1]{\widehat{#1}}               % Pontryagin dual
+\newcommand{\Cc}{C_c}                             % compactly supported continuous functions
+\DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
+\DeclarePairedDelimiter{\norm}{\lVert}{\rVert}
+\DeclarePairedDelimiterX{\inner}[2]{\langle}{\rangle}{#1, #2}
+
+% Reference to the book, e.g. \RV{Theorem 3-8}
+\newcommand{\RV}[1]{\cite[#1]{RV}}
