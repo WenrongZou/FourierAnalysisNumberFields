@@ -36,6 +36,57 @@
   \end{enumerate}
 \end{exercise}
 
+\begin{solution}
+(a) Multiplication by $a$, $x \mapsto ax$, is a continuous endomorphism of the
+additive group $K$. Hence $\psi_a$, its composite with $\psi$, is a continuous
+homomorphism $K \to S^1$, i.e.\ a unitary character of $K$.
+
+If $a = 0$, then $\psi_a(x) = \psi(0) = 1$ for all $x \in K$, so $\psi_a$ is
+trivial. Conversely, let $a \neq 0$. Since $\psi$ is nontrivial, there is some
+$y \in K$ with $\psi(y) \neq 1$, and then $\psi_a(a^{-1}y) = \psi(y) \neq 1$.
+So $\psi_a$ is nontrivial.
+
+(b) Recall that $\dual{K}$ has the compact-open topology. A basis of neighborhoods of a
+character $\psi_0$ is given by the sets
+\[W(\psi_0, C, \epsilon) = \{\psi \in \dual{K}:  |\psi(x) - \psi_0(x)| < \epsilon, \forall x \in C \}. \]
+where $C\subset K$ is a compact set and $\epsilon > 0$.
+
+First, reduce to continuity at $0$. Note that $\psi_{a + b} (x)= \psi_a (x) \cdot \psi_b(x)$.
+Then we have that
+\[|\psi_a(x)- \psi_b(x)| = |\psi_b|\cdot |\psi_{a-b}(x) - 1 | = |\psi_{a-b}(x) - 1|. \]
+So it suffices to show that for each compact $C$ and $\epsilon > 0$, there is a $\delta >0$, such
+that
+% \[|a| < \delta \Rightarrow |\psi_a(x) - 1| < \epsilon. \]
+$\forall |a| < \delta$, $|\psi_a(x) - 1| < \epsilon$.
+
+Given an $\epsilon > 0$. Since $\psi$ is continuous at $0$ and $\psi(0) = 1$, then there is an $r > 0$, such that
+$\forall |x| < r$, $|\psi(x) - 1|< \epsilon$. Since $C$ is compact, then $M = \max_{x \in C} \{ |x|\} < \infty$.
+Choose $\delta = r / M$, then $\forall |a| < \delta$ and $\forall x \in C$, $|a x| < r$.
+It follows that
+\[|\psi_a(x) - 1| = |\psi(ax) - 1| < \epsilon. \]
+
+Injectivity is followed from (a).
+
+(c)
+Note that
+\[\forall a \in K, \psi_a(b) = 1, \Leftrightarrow \forall a \in K, \psi(a b) = 1, \Leftrightarrow b = 0. \]
+
+Recall that we have the fact of Pontryagin dual: let $G$ be a locally compact abelian group
+and $H$ be a proper closed subgroup of $G$. Then there is a nontrivial character $\chi$ of $G$, such that
+$\chi|_H = 1$.
+
+Let $H$ be the closure of the image of $\alpha_\psi$, i.e. $H = \overline{\alpha_\psi(K)}$.
+Assume that $H \neq \dual K$. Then we have a character $\chi \in \dual{\dual K}$ such that
+$\chi$ is trivial on $H$. And by Pontryagin duality $K \equiv \dual{\dual{K}}$, every character
+of $\dual K$ is evaluation at some point $b \in K$, i.e. $\psi \mapsto \psi (b)$.
+Then we have that $\chi = (\psi \mapsto \psi(b_0))$ for some $b_0 \in K$. Since
+$\chi$ is trivial on $H$ then $\forall a \in K, \psi_a(b_0) = 1$. It follows that
+$b_0 = 0$, which contradicts to $\chi$ is a nontrivial character of $\dual{K}$.
+
+
+
+\end{solution}
+
 \begin{exercise}[2]
   \label{ex:ch7-2}
   Let $K$ be a non-Archimedean local field with ring of integers $\gotho_K$
