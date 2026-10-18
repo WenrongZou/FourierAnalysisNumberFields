@@ -1,0 +1,159 @@
+% Chapter 7, Exercises 6--10.
+
+\begin{exercise}[6]
+  \label{ex:ch7-6}
+  We may now use the results of previous problems to construct the standard
+  character $\psi_K \colon \AAA_K \to S^1$ for $K$ any global field of
+  positive characteristic.
+  \begin{enumerate}[label=(\alph*)]
+    \item Suppose that $K_0 = \FF_p(t)$. Define $\psi_{K_0}$ by
+      \[
+        \psi_{K_0}(x) = \prod_v \psi_v(x_v)
+      \]
+      where $\psi_\infty$ is given by \cref{ex:ch7-3} and $\psi_v$
+      ($v$ finite) is given by part~(c) of the previous exercise. Show that
+      $\psi_{K_0}$ is a nontrivial character of $\AAA_{K_0}$ that, moreover,
+      is trivial on $K_0$.
+    \item Now let $K$ be any finite separable extension of $K_0$. Use the
+      trace map from $K$ to $K_0$ (or, equivalently, the corresponding adelic
+      trace map) to define the standard character $\psi_K$ on $K$. Show that
+      this character is nontrivial on $\AAA_K$, but trivial on $K$.
+  \end{enumerate}
+\end{exercise}
+
+\begin{exercise}[7]
+  \label{ex:ch7-7}
+  Let $G$ be a locally compact abelian group with Haar measure $\dd g$, and
+  let $\dd\dual{g}$ be the dual measure; that is, the measure on the
+  Pontryagin dual $\dual{G}$ relative to which the Fourier inversion formula
+  holds. Suppose that we have an isomorphism
+  $\alpha \colon G \xrightarrow{\cong} \dual{G}$ of topological groups.
+  \begin{enumerate}[label=(\alph*)]
+    \item Show that there is a \emph{unique} multiple $\mu = t \cdot \dd g$
+      such that $\mu$ identifies with its dual measure under $\alpha$. One
+      calls $\mu$ the \emph{self-dual} measure on $G$ relative to the
+      isomorphism $\alpha$.
+    \item Let $G$ be the additive group of a non-Archimedean local field $K$,
+      $\psi \colon K \to S^1$ the standard unitary character, and
+      $\alpha_\psi$ the isomorphism of \cref{ex:ch7-1}. Denote by $\dd x$ the
+      self-dual measure relative to $\psi$ (that is, relative to
+      $\alpha_\psi$). Show that $\vol(\gotho_K, \dd x) = N(\calD_K)^{-1/2}$,
+      where $\calD_K$ denotes the different of $K$.
+  \end{enumerate}
+\end{exercise}
+
+\begin{exercise}[8]
+  \label{ex:ch7-8}
+  In this exercise we analyze the dependence of the epsilon factor on the
+  additive character $\psi$ and the Haar measure $\dd x$. Let $K$ be a local
+  field and consider $\varepsilon(\chi, \psi, \dd x)$ for any
+  $\chi \in \Hom_{\cont}(K^\times, \CC^\times)$.
+  \begin{enumerate}[label=(\alph*)]
+    \item For every positive real number $t$, show that
+      \[
+        \varepsilon(\chi, \psi, t \cdot \dd x)
+        = t \cdot \varepsilon(\chi, \psi, \dd x).
+      \]
+    \item Let $a \in K^\times$, and let $\psi_a$ denote the character defined
+      by $\psi_a(x) = \psi(ax)$. Show that
+      \[
+        \varepsilon(\chi, \psi_a, \dd x)
+        = \chi(a)\abs{a}^{-1} \varepsilon(\chi, \psi, \dd x).
+      \]
+    % Note: replacing \psi by \psi_a with a = \pi^k turns the conductor P^m
+    % into P^{m-k}; comparing with (b) shows that the exponent below must be
+    % n - m (Tate's a(\chi) + n(\psi) with n(\psi) = -m), not m + n.
+    \item Let $K$ be non-Archimedean with unique prime ideal $P$, and let
+      $P^n$ and $P^m$ be the conductors of $\chi$ and $\psi$, respectively.
+      Then show for every unramified character $\nu$ of $K^\times$ that
+      \[
+        \varepsilon(\chi\nu, \psi, \dd x)
+        = \nu(\pi^{m+n}) \varepsilon(\chi, \psi, \dd x)
+      \]
+      where $\pi$ is a uniformizing parameter for $\gotho_K$. Note that the
+      first factor on the right is well-defined because $\nu$ is unramified.
+      [\emph{Hint}: Use the explicit formula given in \RV{Eq.~(7.6)}.]
+  \end{enumerate}
+\end{exercise}
+
+\begin{exercise}[9]
+  \label{ex:ch7-9}
+  Let $K$ be a local field with standard character $\psi$ and self-dual
+  measure $\dd x$, and let $\chi = \omega\abs{\cdot}^s$ be a
+  (quasi-)character on $K^\times$ with $\omega$ unitary. Put
+  \[
+    W(\omega) = \varepsilon(\chi, \psi, \dd x)\big|_{s=1/2}.
+  \]
+  \begin{enumerate}[label=(\alph*)]
+    \item By using the functional equation, show that
+      \[
+        W(\omega) W(\overline{\omega}) = \omega(-1).
+      \]
+      Conclude that $\abs{W(\omega)} = 1$. [\emph{Hint}: First prove that
+      $W(\overline{\omega}) = \omega(-1)\overline{W(\omega)}$.]
+    \item Using \RV{Section 7.1}, show that for $K = \RR$, $W(\omega) = 1$
+      (respectively, $-i$) for $\omega = 1$ (respectively, $\omega = \sgn$).
+      Show further that when $K = \CC$, we have $W(\omega) = 1$.
+    % The scan appears to read \psi(x\pi^{d-n}); since \psi has conductor
+    % \calD_K^{-1} = \pi^{-d}\gotho_K, the exponent must be -d-n
+    % (cf. Exercise 10(a), where c\gotho_K = \pi^n\calD_K).
+    \item Let $K$ be non-Archimedean with uniformizing parameter $\pi$, and
+      let $\omega$ as above have conductor $\pi^n\gotho_K$. Put
+      \[
+        G = \sum_{x \in U/U_n} \overline{\omega}(x) \psi(x\pi^{-d-n})
+      \]
+      where $\pi^d\gotho_K = \calD_K$ (the different),
+      $U_r = 1 + \pi^r\gotho_K$ ($r > 0$), and $U$ is the full group of units
+      in $\gotho_K$. Show directly that $\abs{G}^2 = q^n$. Then appeal to
+      \RV{Eq.~(7.6)} to deduce (once again) that $\abs{W(\omega)} = 1$.
+  \end{enumerate}
+\end{exercise}
+
+\begin{exercise}[10]
+  \label{ex:ch7-10}
+  (Tate) Let $K$ be a non-Archimedean local field with uniformizing parameter
+  $\pi$, and let $\omega$ be a unitary character of $K^\times$ with conductor
+  $\pi^n\gotho_K$. Let $\gotha$ be an ideal of $\gotho_K$ such that
+  $\gotha^2$ divides $\pi^n\gotho_K$. Put
+  $\gothb = \gotha^{-1}\pi^n\gotho_K \subseteq \gotho_K$.
+  \begin{enumerate}[label=(\alph*)]
+    \item Show that there exists an element $c \in K$ such that
+      $c\gotho_K = \pi^n\calD_K$ and also
+      \[
+        \omega(1+t) = \psi(c^{-1}t)
+      \]
+      for all $t \in \gothb$. [\emph{Hint}: Suppose that
+      $\gotha \neq \gotho_K$, so that $\pi$ divides $\gotha$. If
+      $t, z \in \gothb$, then $tz \in \pi^n\gotho_K$. Consequently,
+      $\omega(1+t)\omega(1+z) = \omega(1+t+z)$, and therefore the map that
+      sends $t$ to $\omega(1+t)$ is a character of the additive group
+      $\gothb$, and this extends to one on $K$. Now appeal to the isomorphism
+      of $K$ with its dual.]
+    \item For $c$ as in the previous part and $K$ now assumed to have
+      characteristic zero, show that
+      \[
+        W(\omega) = N(\gothb\gotha^{-1})^{-1/2}
+        \sum_{x \in (1+\gotha)/(1+\gothb)}
+        \overline{\omega}(c^{-1}x)\psi(c^{-1}x).
+      \]
+      \textsc{Note}. When $\gotha = \gotho_K$, this result is identical to
+      \RV{Eq.~(7.6)}.
+    \item For $\omega$ unramified, show that $W(\omega) = \omega(\pi)^d$ if
+      $\pi^d\gotho_K = \calD_K$.
+    % The scan reads |W(\omega)|_p; the subscript should be the place v.
+    \item Let $E$ be a number field containing $W(\omega)$. Then show that
+      for every place $v$ of $E$ not dividing the residual characteristic $p$
+      of $K$, we have $\abs{W(\omega)}_v = 1$. Using the Artin product
+      formula, conclude that if $E$ has a unique place $u$ above $p$, then
+      also $\abs{W(\omega)}_u = 1$.
+    \item Suppose that $\pi^n\gotho_K = \pi\gotha$. Then, using part~(b),
+      show that $z = (\omega(c^{-1})W(\omega))^2$ lies in the cyclotomic
+      extension $E = \QQ(e^{2\pi i/p^r})$ for some $r \ge 1$. Show further,
+      using part~(d), that $z$ must be a root of unity.
+    \item (Lamprecht, Dwork) Suppose that $\omega$ is either
+      \emph{unramified} (that is, $n = 0$) or \emph{wildly ramified} (that
+      is, $n \ge 2$). Show that $W(\omega)$ is a root of unity.
+      [\emph{Hint}: This is clear if $n$ is even. When $n$ is odd, write
+      $\pi^n\gotho_K = \pi\gotha$ and apply the previous part.]
+  \end{enumerate}
+\end{exercise}

@@ -102,3 +102,149 @@ $b_0 = 0$, which contradicts to $\chi$ is a nontrivial character of $\dual{K}$.
       if and only if $x \in P^{m-n}$.
   \end{enumerate}
 \end{exercise}
+
+\begin{exercise}[3]
+  \label{ex:ch7-3}
+  In this exercise we construct nontrivial characters for non-Archimedean
+  local fields, including the standard character for $\QQ_p$ and its
+  extensions, and the standard character for the completion of $\FF_p(t)$ and
+  its extensions, at the place defined by $t^{-1}$.
+  \begin{enumerate}[label=(\alph*)]
+    \item Given any $x \in \QQ_p$, let $n$ be the smallest nonnegative integer
+      such that $p^n x$ lies in $\ZZ_p$. Let $r \in \ZZ$ be such that
+      $r \equiv p^n x \pmod{p^n}$. Put
+      \[
+        \psi(x) = e^{2\pi i r/p^n}.
+      \]
+      Show that $\psi \colon \QQ_p \to S^1$ is a nontrivial unitary character
+      of conductor $\ZZ_p$ and that it identifies with the composite map
+      $\QQ_p \to \QQ_p/\ZZ_p \to \QQ/\ZZ \to S^1$.
+    % The scan appears to read a_1 (the coefficient of t) in the exponent
+    % below. With a_1 the conductor is indeed F_p[[t^{-1}]], but then
+    % Exercise 5(d) fails. The character compatible with Exercises 5 and 6
+    % (the residue of x dt at infinity) is x |-> e^{-2\pi i a_{-1}/p}, whose
+    % conductor is t^{-2} F_p[[t^{-1}]].
+    \item Let $K_\infty$ denote the completion of $K = \FF_p(t)$ defined by
+      the place $t^{-1}$. Show that $K_\infty = \FF_p((t^{-1}))$; that is,
+      that each $x \in K_\infty$ can be uniquely represented by a formal power
+      series
+      \[
+        \sum_{n=-\infty}^{r} a_n t^n
+      \]
+      with $a_n \in \ZZ/p\ZZ$ for all $n$ less than or equal to the integer
+      $r$. Put
+      \[
+        \psi_\infty(x) = e^{2\pi i a_1/p} \in S^1.
+      \]
+      Show that $\psi_\infty$ is a nontrivial unitary character of $K_\infty$
+      of conductor $\FF_p[[t^{-1}]]$.
+    \item Let $\pi$ be any irreducible polynomial in $\FF_p[t] \subseteq K$,
+      and let $K_\pi$ denote the completion of $K$ defined by the prime ideal
+      $(\pi)$, with residue field $k$, which we may identify with a
+      transversal of $(\pi)$ in $\FF_p[t]$. Show that every $x \in K_\pi$ can
+      be written in the form
+      \[
+        \sum_{n=r}^{+\infty} a_n \pi^n
+      \]
+      for some integer $r$, with each coefficient $a_n \in k$. Next put
+      \[
+        \psi_\pi(x) = e^{2\pi i \tr_{k/\FF_p}(a_{-1})/p}.
+      \]
+      Show that $\psi_\pi$ is a nontrivial unitary character of $K_\pi$.
+    % From here on K is a local field (the book writes F and F_0); it has
+    % nothing to do with the global field F_p(t) of parts (b) and (c).
+    \item Let $K$ be any non-Archimedean local field. Show that $K$ is a
+      finite separable extension of a local field $K_0$ as in parts~(a), (b),
+      or~(c) above. Let $\psi_0$ denote the corresponding character of $K_0$
+      defined therein. Given $x \in K$, set
+      \[
+        \psi(x) = \psi_0(\tr_{K/K_0}(x)).
+      \]
+      Show that $\psi$ is a nontrivial unitary character of $K$.
+    \item Continuing in the same context, show that when the characteristic
+      of $K$ is zero, the conductor of $\psi$ is the inverse different
+      $\calD_K^{-1}$. In this case show also that for $f$ the characteristic
+      function of $\gotho_K$, the Fourier transform of $f$ is
+      $N(\calD_K)^{-1/2}$ times the characteristic function of
+      $\calD_K^{-1}$.
+  \end{enumerate}
+\end{exercise}
+
+\begin{exercise}[4]
+  \label{ex:ch7-4}
+  We shall now construct the standard character on $\AAA_K/K$ for an
+  algebraic number field $K$.
+  \begin{enumerate}[label=(\alph*)]
+    \item For each rational prime $p$, let $\psi_p$ denote the standard
+      character of $\QQ_p$ defined above. Also define
+      $\psi_\infty \colon \RR \to S^1$ by $\psi_\infty(x) = e^{-2\pi i x}$.
+      Show that
+      \[
+        \psi \colon \AAA_\QQ \to S^1, \qquad
+        (x_v) \mapsto \prod_v \psi_v(x_v)
+      \]
+      is a nontrivial unitary character on $\AAA_\QQ$, which is trivial on
+      $\QQ$ (embedded diagonally). [\emph{Hint}: Use the Artin product
+      formula.]
+    \item For any number field $K$, define $\psi_K \colon \AAA_K \to S^1$ by
+      \[
+        \psi_K(x) = \prod_v \psi_v(x_v)
+      \]
+      where $v$ ranges over all the places of $K$ and $\psi_v$ is the standard
+      character on the local field $K_v$, as constructed above. Show that
+      $\psi_K$ is a nontrivial unitary character on $\AAA_K$.
+    \item Show also that $\psi_K(x) = \psi(\tr(x))$ where $\tr$ denotes the
+      adelic trace map from $K$ to $\QQ$. Conclude from part~(a) that
+      $\psi_K$ is trivial on $K$.
+  \end{enumerate}
+\end{exercise}
+
+\begin{exercise}[5]
+  \label{ex:ch7-5}
+  We shall now construct the standard character for the completion $K_v$ of
+  $K = \FF_p(t)$ at any \emph{finite} place $v$.
+  \begin{enumerate}[label=(\alph*)]
+    \item Let $\pi(t)$ be an irreducible element of $\FF_p[t]$ of degree
+      $d \ge 1$. Show that $K$ has a unique place $v$ such that the polynomial
+      $\pi(t)$ generates the maximal ideal of
+      $\gotho_v = \{\alpha \in K_v : \abs{\alpha}_v \le 1\}$. Show further
+      that $q_v = \operatorname{Card}(\gotho_v/\pi\gotho_v) = p^d$, and that
+      the polynomials in $\FF_p[t]$ of degree less than $d$ in fact generate
+      $\gotho_v/\pi\gotho_v$.
+    % Note: as defined, K^{(v)} contains the constants, so
+    % K^{(v)} \cap \gotho_v = F_p and the sum below is not direct; part (c),
+    % where deg z < nd, implicitly uses the strict inequality |y|_\infty < 1.
+    \item Given any place $v$ of $K$ (possibly infinite), let us define
+      \[
+        K^{(v)} = \{x \in K : \abs{x}_u \le 1 \ \forall u \neq v\}.
+      \]
+      Show that $K_v = K^{(v)} \oplus \gotho_v$. [\emph{Hint}: By replacing
+      $t$ by $t^{-1}$ if necessary, one may assume that $v$ is defined by an
+      irreducible polynomial $\pi(t) \in \FF_p[t]$ and then apply the previous
+      part.]
+    \item Let $v$ be any finite place of $K$; that is, one defined by an
+      irreducible polynomial $\pi(t) \in \FF_p[t]$ of positive degree $d$.
+      Show that every element $y$ of $K^{(v)}$ can be written as $z/\pi^n$
+      for some $n \ge 0$ and polynomial $z = z(t) \in \FF_p[t]$ of the form
+      \[
+        c_1 t^{nd-1} + c_2 t^{nd-2} + \cdots + c_{nd}
+      \]
+      with $c_j \in \FF_p$ for all $j$, possibly all zero. If
+      $x = y + \alpha \in K_v$ with $\alpha \in \gotho_v$, put
+      \[
+        \psi_v(x) = e^{2\pi i c_1/p}.
+      \]
+      (This is of course well-defined despite the status of $c_1$ as a residue
+      class modulo the prime $p$.) Show that $\psi_v$ is a nontrivial
+      character of $K_v$ of conductor $\gotho_v$.
+    % See the note at Exercise 3(b): the identity \psi_v(y)\psi_\infty(y) = 1
+    % requires \psi_\infty(x) = e^{-2\pi i a_{-1}/p}. The book writes f for z
+    % in the hint.
+    \item Let $v$, $\pi$, and $y$ be as in the previous part. Show that
+      $y \equiv c_1 t^{-1} \pmod{t^{-2}}$. Conclude that
+      $\psi_v(y)\psi_\infty(y) = 1$, where $\psi_\infty$ is as in part~(b) of
+      \cref{ex:ch7-3}. [\emph{Hint}: Write $\pi$ as $t^d g$, with $g$ a
+      polynomial in $t^{-1}$ of constant term $1$, so that
+      $y = z g^{-n} t^{-nd}$.]
+  \end{enumerate}
+\end{exercise}

@@ -1,0 +1,240 @@
+% Chapter 7, Exercises 16--20.
+
+\begin{exercise}[16]
+  \label{ex:ch7-16}
+  Let $K$ be a number field and let $S$ be a set of primes in $\gotho_K$. One
+  says that $S$ has \emph{lower Dirichlet density}
+  \[
+    \underline{\delta}(S) = \liminf_{s \to 1^+} \frac{1}{\log\frac{1}{s-1}}
+    \cdot \sum_{P \in S} \frac{1}{N(P)^s}
+  \]
+  provided that the indicated $\liminf$ exists. The \emph{upper Dirichlet
+  density} $\overline{\delta}(S)$ is likewise defined via the $\limsup$.
+  \begin{enumerate}[label=(\alph*)]
+    \item Show that every $S$ has both a lower and an upper Dirichlet
+      density. [\emph{Hint}: Use \RV{Proposition 7-31}, part~(ii), and also
+      that a bounded sequence in $\RR$ has an infimum and a supremum.]
+    \item Show that $S$ has a Dirichlet density (as defined previously) if
+      and only if $\underline{\delta}(S) = \overline{\delta}(S)$.
+    \item Let $T$ be any finite set of primes in $\gotho_K$. Show that
+      $\underline{\delta}(S \cup T) = \underline{\delta}(S)$ and
+      $\overline{\delta}(S \cup T) = \overline{\delta}(S)$. Conclude, in
+      particular, that any finite set of primes has density zero.
+    % The scan reads "N(P) = 1"; degree one means that N(P) = p is a
+    % rational prime.
+    \item Let $\mathscr{P}_K^1$ denote the set of degree-one primes of $K$;
+      that is, prime ideals $P$ of $\gotho_K$ such that $N(P)$ is a rational
+      prime. Show that for any set $S$ of primes,
+      $\underline{\delta}(S \cap \mathscr{P}_K^1) = \underline{\delta}(S)$
+      and $\overline{\delta}(S \cap \mathscr{P}_K^1) = \overline{\delta}(S)$.
+      Conclude that the set of primes in $\gotho_K$ of degree greater than
+      one has density zero.
+  \end{enumerate}
+\end{exercise}
+
+\begin{exercise}[17]
+  \label{ex:ch7-17}
+  Let $E/K$ be a finite abelian extension of number fields with Galois group
+  $G = \Gal(E/K)$. Let $U = N_{E/K}(C_E)$. Recall that $C_K/U$ is isomorphic
+  to $G$ via class field theory. (See \RV{Theorem 6-6}.) For any character
+  $\chi$ of $G$, let $\widetilde{\chi}$ denote the corresponding character of
+  $C_K$ that is trivial on $U$. Keeping in mind that the extension $E/K$ is
+  abelian, for any prime $P$ of $K$, we let
+  \[
+    \varphi_P = \left(\frac{E/K}{P}\right)
+  \]
+  denote the corresponding Frobenius element. Now set
+  \[
+    \chi(P) =
+    \begin{cases}
+      \chi(\varphi_P) & \text{if $P$ is unramified in $E$ or if $\chi$ is
+      trivial}, \\
+      0 & \text{otherwise},
+    \end{cases}
+  \]
+  and put
+  \[
+    L(s, \chi) = \prod_P \bigl(1 - \chi(P) N(P)^{-s}\bigr)^{-1}.
+  \]
+  \begin{enumerate}[label=(\alph*)]
+    \item Show that $L(s, \chi)$ converges absolutely in $\{\Re(s) > 1\}$ and
+      further admits a meromorphic continuation to the whole $s$-plane, with
+      no poles except possibly a simple one at $s = 1$, which occurs only
+      when $\chi = 1$. Show, moreover, that there is a functional equation
+      relating $s$ to $1 - s$. [\emph{Hint}: Use
+      \RV{Theorems 6-6 and 7-16}.]
+    % Note: with \chi(P) = 0 at every P ramified in E, (b) fails at a
+    % ramified P that is not totally ramified; it holds if one sets
+    % \chi(P) = \chi(\varphi_P) whenever \chi is trivial on the inertia group
+    % at P (and up to finitely many Euler factors in any case, which
+    % suffices for (c)).
+    \item Show that
+      \[
+        \zeta_E(s) = \prod_{\chi \in \dual{G}} L(s, \chi).
+      \]
+      [\emph{Hint}: Write the left-hand side as an Euler product over the
+      primes $P$ of $K$.]
+    \item Show that
+      \[
+        \lim_{s \to 1^+} \frac{1}{\log\frac{1}{s-1}}
+        \sum_{P \in \mathscr{P}_K^1} \frac{\chi(P)}{N(P)^s}
+        =
+        \begin{cases}
+          1 & \text{if } \chi = 1, \\
+          0 & \text{otherwise.}
+        \end{cases}
+      \]
+  \end{enumerate}
+\end{exercise}
+
+\medskip
+The following four problems lead the reader through a proof of a version of
+the Tchebotarev density theorem, here reformulated in terms of Dirichlet
+density. Recall that $\mathscr{P}_{K,f}$ denotes the set of finite places of
+$K$, or, equivalently, the set of prime ideals of $\gotho_K$.
+\begin{quote}
+  \textsc{Theorem.} \emph{Let $E/K$ be a finite Galois extension of number
+  fields with Galois group $G$, and let $C$ be a conjugacy class in $G$. Set}
+  \[
+    S_K(C) = \Bigl\{P \in \mathscr{P}_{K,f} :
+    \left(\frac{E/K}{P}\right) = C\Bigr\}.
+  \]
+  \emph{Then $\delta(S_K(C))$ exists and equals
+  $\operatorname{Card}(C)/\operatorname{Card}(G)$.}
+\end{quote}
+We shall also need the degree-one version of $S_K(C)$, which we define as
+\[
+  S_K^1(C) = S_K(C) \cap \mathscr{P}_K^1.
+\]
+The first problem is well known and deals with the abelian case. The next
+three encapsulate the ideas from an elegant proof due to O.~Schreier.
+
+\begin{exercise}[18]
+  \label{ex:ch7-18}
+  Let $E/K$ be a finite abelian extension, so that $C$ reduces to a singleton
+  set $\{a\}$ for some $a \in G$. We recall from
+  \RV{Chapter 3, Exercise 13}, the discrete form of the Fourier inversion
+  formula: if $f$ is a complex-valued function on $G$, then
+  \[
+    f(g) = \frac{1}{\operatorname{Card}(G)}
+    \sum_{\chi \in \dual{G}} \dual{f}(\chi)\chi(g)
+  \]
+  where
+  \[
+    \dual{f}(\chi) = \sum_{g \in G} f(g)\overline{\chi}(g).
+  \]
+  % Note: as printed, f_a is Card(G) times the characteristic function of
+  % {a}, and the identity in (b) should read
+  %   \sum_{P \in S_K(C)} N(P)^{-s}
+  %     = \frac{1}{Card(G)} \sum_{g \in G} \sum_{P \in S_K(\{g\})} f_a(g) N(P)^{-s}
+  %     = \frac{1}{Card(G)} \sum_{\chi} \overline{\chi}(a) \sum_P \chi(P) N(P)^{-s},
+  % up to the finitely many primes ramified in E.
+  \begin{enumerate}[label=(\alph*)]
+    \item Given $a \in G$, define $f_a \colon G \to \CC$ by
+      \[
+        f_a(g) = \sum_{\chi \in \dual{G}} \chi(a^{-1}g).
+      \]
+      Show that $f_a$ is in fact the characteristic function of $\{a\}$.
+    \item For all $g \in G$ show that
+      \[
+        \sum_{P \in S_K(C)} \frac{1}{N(P)^s}
+        = \sum_{g \in G} \sum_{P \in S_K(C)} \frac{f_a(g)}{N(P)^s}
+        = \frac{1}{\operatorname{Card}(G)}
+        \sum_{\chi \in \dual{G}} \sum_P \frac{\chi(P)}{N(P)^s}.
+      \]
+    \item Show that $\delta(S_K(C))$ exists and equals
+      $1/\operatorname{Card}(G) = \operatorname{Card}(C)/\operatorname{Card}(G)$.
+      [\emph{Hint}: Use the previous exercise.]
+  \end{enumerate}
+\end{exercise}
+
+\begin{exercise}[19]
+  \label{ex:ch7-19}
+  Suppose that $E/K$ is any finite normal extension of number fields. Let $G$
+  be the associated Galois group, and let $C$ be a conjugacy class in $G$.
+  Suppose further that $E'$ is an auxiliary finite abelian extension of $K$
+  with Galois group $G'$ such that $E$ and $E'$ are linearly disjoint over
+  $K$. Put $L = EE'$.
+  \begin{enumerate}[label=(\alph*)]
+    \item Show that $L/K$ is normal with Galois group
+      $\mathcal{G} = G \times G'$.
+    \item Choose any conjugacy class $C' = \{a\}$ in $G'$, and let $H$ be the
+      subgroup generated by $CC'$ in $\mathcal{G}$. Put $F = L^H$, and
+      consider the compositum $FE'$. We have the following diagram:
+      \[
+        \begin{tikzcd}[row sep=small, column sep=small]
+          & & L = EE' \arrow[ddll, dash] \arrow[dd, dash, "H"']
+            \arrow[dr, dash] & & \\
+          & & & FE' \arrow[dl, dash] \arrow[dr, dash] & \\
+          E \arrow[drr, dash, "G"'] & & F \arrow[d, dash] & &
+            E' \arrow[dll, dash, "G'"] \\
+          & & K & &
+        \end{tikzcd}
+      \]
+      Show that $FE'$ is a normal extension of $F$ with Galois group given by
+      \[
+        \Gal(FE'/F) \cong H/(H \cap \langle C \rangle)
+        \cong \langle C' \rangle \subseteq G'.
+      \]
+      Using the previous problem, conclude that
+      \[
+        \delta\Bigl(\Bigl\{Q \in \mathscr{P}_F^1 :
+        \left(\frac{FE'/F}{Q}\right) = C'\Bigr\}\Bigr) = \frac{1}{f'}
+      \]
+      where $f' = \operatorname{Card}(\langle C' \rangle)$.
+    \item For $P \in S_K^1(C)$, define
+      $\alpha_P(F) = \operatorname{Card}(\{Q \in \mathscr{P}_F^1 : Q \mid P\})$.
+      Show that
+      \[
+        \alpha_P(F) = \frac{1}{\operatorname{Card}(H)}
+        \operatorname{Card}(\{\tau \in \mathcal{G} : \tau C \tau^{-1} \in H\}).
+      \]
+      [\emph{Hint}: Use \RV{Proposition 6-2}.]
+    \item Put $f = \operatorname{Card}(C)$. Assuming that $f \mid f'$, show
+      for $P \in S_K^1(C)$ that
+      \[
+        \left(\frac{L/K}{P}\right) \cap H = \varnothing.
+      \]
+  \end{enumerate}
+\end{exercise}
+
+\begin{exercise}[20]
+  \label{ex:ch7-20}
+  We continue in the context of the previous problem and always assume that
+  $f \mid f'$.
+  \begin{enumerate}[label=(\alph*)]
+    \item Show that
+      \[
+        \lim_{s \to 1^+} \sum_{P \in S_K^1(C, C')} \frac{\alpha_P(F)}{N(P)^s}
+        \sim \frac{1}{f'} \log\Bigl(\frac{1}{s-1}\Bigr)
+      \]
+      where
+      \[
+        S_K^1(C, C') = \Bigl\{P \in S_K^1(C) :
+        \left(\frac{E'/K}{P}\right) = C'\Bigr\}.
+      \]
+    \item Show that
+      \[
+        \delta(S_K^1(C, C')) = \frac{f}{nn'}
+      \]
+      where $n$ and $n'$ denote $\operatorname{Card}(G)$ and
+      $\operatorname{Card}(G')$, respectively. [\emph{Hint}: Show that
+      $\alpha_P(F) = nn'/(ff')$.]
+    \item Let
+      \[
+        n'_f = \operatorname{Card}(\{\sigma' \in G' : f \mid o(\sigma')\}).
+      \]
+      Show that
+      \[
+        \underline{\delta}(S_K(C)) \ge \frac{f n'_f}{nn'}
+      \]
+      where again $\underline{\delta}$ denotes lower Dirichlet density, as
+      defined above. [\emph{Hint}: Any absolutely convergent summation
+      indexed over $P \in S_K^1(C)$ can be rewritten as a double summation,
+      first over $\sigma' \in G'$ and then over
+      \[
+        \Bigl\{P \in S_K^1(C) : \left(\frac{E'/K}{P}\right) = \sigma'\Bigr\}.
+      \]
+      Use this and appeal to part~(b).]
+  \end{enumerate}
+\end{exercise}

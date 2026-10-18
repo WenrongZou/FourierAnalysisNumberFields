@@ -1,0 +1,181 @@
+% Chapter 7, Exercises 21--23.
+
+\begin{exercise}[21]
+  \label{ex:ch7-21}
+  We continue in the context of the previous two problems.
+  \begin{enumerate}[label=(\alph*)]
+    % The scan reads n'_f/n; since n'_f <= n', the intended quotient is
+    % n'_f/n'. The end of the hint is hard to read in the scan; the intended
+    % condition is that p_j^{b_j} - p_j^{a_j-1} elements of the cyclic factor
+    % Z/p_j^{b_j}Z of G' have order divisible by p_j^{a_j}.
+    \item Show that we can choose $G'$ such that the quotient $n'_f/n'$ is
+      arbitrarily close to $1$. [\emph{Hint}: Suppose that $f$ has prime
+      factorization
+      \[
+        f = \prod_{j=1}^{r} p_j^{a_j} \quad (a_j > 0).
+      \]
+      Then take $G'$ of order
+      \[
+        \prod_{j=1}^{r} p_j^{b_j}
+      \]
+      such that for each $j$, $p_j^{b_j} - p_j^{a_j-1}$ elements of $G'$ have
+      order a power of $p_j^{a_j}$.]
+    \item Use the previous exercise and the first part of this one to show
+      that
+      \[
+        \underline{\delta}(S_K(C)) \ge \frac{f}{n}.
+      \]
+    \item Show that
+      \[
+        \underline{\delta}(S_K(G - C)) \ge \frac{n - f}{n}.
+      \]
+      [\emph{Hint}: $G - C$ is the disjoint union of conjugacy classes
+      different from $C$.]
+    \item Show that $\delta(S_K(C))$ exists and is given by
+      $f/n = \operatorname{Card}(C)/\operatorname{Card}(G)$. [\emph{Hint}:
+      Use part~(c) to conclude that
+      \[
+        \overline{\delta}(S_K(C)) \le \frac{f}{n}.
+      \]
+      But the lower and upper Dirichlet densities always exist, and the
+      latter bounds the former from above.]
+  \end{enumerate}
+\end{exercise}
+
+\begin{exercise}[22]
+  \label{ex:ch7-22}
+  Let $K$ be a function field in one variable over a finite field $\FF_q$.
+  The first parts of this exercise lead to a proof of the following result:
+  \begin{quote}
+    \textsc{Theorem.} \emph{The function $\zeta_K(s)$ is a rational function
+    of $T = q^{-s}$. More precisely, there is a polynomial $P$ of degree
+    $2g$, where $g$ is the genus of $K$, with $P(0) = 1$, such that}
+    \[
+      \zeta_K(s) = \frac{P(T)}{(1-T)(1-qT)}.
+    \]
+    \emph{Furthermore, $P(1) = h$, the order of the divisor class group
+    $\operatorname{Pic}^0(K)$.} (See \RV{Section 7.5}.)
+  \end{quote}
+  \textsc{Remark}. A celebrated theorem of A.~Weil asserts in addition that
+  $P(T)$ lies in $\ZZ[T]$ and admits a factorization over $\CC$ of the form
+  \[
+    \prod_{j=1}^{2g} (1 - \alpha_j T)
+  \]
+  with each $\alpha_j$ an algebraic integer of absolute value $q^{1/2}$.
+  Consequently, every zero of $\zeta_K(s)$ lies on the line
+  $\{\Re(s) = 1/2\}$---in other words, the \emph{Riemann hypothesis} holds
+  for $K$! But a proof of this result lies far beyond the scope of this book.
+  \begin{enumerate}[label=(\alph*)]
+    % Caution: as stated, (a) is false. Places with N(v) = q correspond to
+    % F_q-rational points of the curve, of which there are only finitely many
+    % (possibly none); the divergence of log \zeta_K(s) as s -> 1^+ comes
+    % from places of all degrees, so the argument in the hint breaks down.
+    \item Show that there exist infinitely many places $v$ of $K$ such that
+      $N(v) = q$. Here the norm of $v$ simply measures the cardinality of the
+      residue field associated with the corresponding local field $K_v$.
+      [\emph{Hint}: Suppose not. Then
+      \[
+        \zeta_K(s) = \prod_{v \in S} (1 - q^{-s})^{-1}
+        \cdot \prod_{v \notin S} (1 - q^{-f_v s})^{-1}
+      \]
+      for a finite set $S$, with $f_v \ge 2$ for all $v$ outside $S$. Deduce
+      from this that in fact, $\log\zeta_K(s)$ has a finite limit as
+      $s \to 1^+$, and thus derive a contradiction to \RV{Theorem 7-19}.]
+    \item Show that $\zeta_K(s)$ is a meromorphic function of $q^{-s}$.
+      [\emph{Hint}: Show that the image of
+      $\abs{\cdot}_{\AAA_K} \colon \II_K \to \RR_+^\times$ is $q^\ZZ$, and
+      then use that $\zeta_K(s) = L(\abs{\cdot}_{\AAA_K}^s)$.]
+    \item Using part~(b) and \RV{Theorem 7-19}, show that $\zeta_K(s)$ takes
+      the form given in the theorem above, with $P(q^{-s})$ an entire
+      function.
+    \item Using the functional equation for $\zeta_K(s)$, deduce the
+      following functional equation for the numerator:
+      \[
+        P(T) = q^g T^{2g} P\Bigl(\frac{1}{qT}\Bigr).
+      \]
+      Deduce that $P$ must be a polynomial, and (by using
+      \RV{Theorem 7-22}) that $P(1) = h$.
+    \item Let $\chi$ be any idele class character of $K$. Show that $L(\chi)$
+      is a rational function of $T = q^{-s}$. [\emph{Hint}: Reduce to the
+      unitary case and argue as above. Provided that
+      $\chi \neq \abs{\cdot}_{\AAA_K}^s$, the function $L(\chi)$ is in fact a
+      polynomial in $T$.]
+  \end{enumerate}
+\end{exercise}
+
+\begin{exercise}[23]
+  \label{ex:ch7-23}
+  Let $K$ be a number field. For $x > 0$, put
+  \[
+    \pi_K(x) = \operatorname{Card}(\{P \text{ prime in } \gotho_K :
+    N(P) \le x\}).
+  \]
+  The ``prime number theorem'' for $K$ then asserts that as $x \to \infty$,
+  \begin{equation}
+    \pi_K(x) \sim \frac{x}{\log x}. \tag{7.21} \label{eq:ch7-7.21}
+  \end{equation}
+  For $K = \QQ$, this was conjectured by Riemann and proven independently by
+  Hadamard and de la Vall\'ee-Poussin in 1896. The object of this exercise is
+  to deduce this theorem from the following theorem for Dirichlet series:
+  % Note: "invertible" is as printed; the Wiener--Ikehara theorem needs
+  % D(s) - \alpha/(s-1) to extend continuously to {Re(s) >= 1}.
+  \begin{quote}
+    \textsc{Theorem} (Tauberian Theorem for Dirichlet Series). \emph{Let}
+    \[
+      D(s) = \sum_{n \ge 1} \frac{a_n}{n^s}
+    \]
+    \emph{be a Dirichlet series with nonnegative coefficients $a_n$ that
+    satisfies the following conditions:}
+    \begin{enumerate}[label=(\roman*)]
+      \item \emph{$D(s)$ is normally convergent in $\{\Re(s) > 1\}$.}
+      \item \emph{$D(s)$ is invertible on the line $\{\Re(s) = 1\}$ except
+        for a simple pole at the point $s = 1$ of residue $\alpha$.}
+    \end{enumerate}
+    \emph{Then}
+    \[
+      \sum_{n \le x} a_n \sim \alpha x
+    \]
+    \emph{asymptotically in $x$.}
+  \end{quote}
+  \begin{enumerate}[label=(\alph*)]
+    % The scan shows no minus sign; since a_n >= 0 one needs
+    % -\zeta_K'/\zeta_K. Also, a_n should be log n times the number of primes
+    % P with N(P) = n (this is what the hint a_n = g(n) - g(n-1) in (c) uses).
+    \item Show that
+      \[
+        -\zeta_K'(s)/\zeta_K(s) = D(s) + \varphi(s)
+      \]
+      for some function $\varphi(s)$ holomorphic and nonzero in
+      $\{\Re(s) \ge 1\}$ and $D(s)$ the Dirichlet series defined by
+      $a_n = \log n$, if $n$ is the norm of some prime $P$, and $a_n = 0$,
+      otherwise.
+    \item Using the results of \RV{Section 7.7}, show that the function
+      $D(s)$ of the previous part satisfies the hypotheses of the Tauberian
+      theorem and has residue $1$ at $s = 1$. Deduce that
+      \[
+        g(x) = \sum_{N(P) \le x} \log N(P) \sim x.
+      \]
+    \item Put $b_n = a_n/\log n$. Show that for any $m \ge 1$, we have
+      \[
+        \pi_K(m) = \sum_{n \le m} \frac{a_n}{\log n}
+        = \frac{g(m)}{\log m} + h(m)
+      \]
+      where
+      \[
+        h(m) = \sum_{n < m} g(n)
+        \Bigl[\frac{1}{\log n} - \frac{1}{\log(n+1)}\Bigr].
+      \]
+      [\emph{Hint}: $a_n = g(n) - g(n-1)$.]
+    \item Using that $g(n) \sim n$, prove \eqref{eq:ch7-7.21} by showing that
+      $h(m)$ is $o(m/\log m)$; that is,
+      \[
+        \lim_{m \to \infty} \frac{\log m}{m} h(m) = 0.
+      \]
+      [\emph{Hint}: Show first that
+      \[
+        \Bigl(\frac{1}{\log n} - \frac{1}{\log(n+1)}\Bigr)
+        \le \frac{1}{n\log^2 n}
+      \]
+      for all $n > 1$.]
+  \end{enumerate}
+\end{exercise}
