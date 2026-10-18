@@ -1,0 +1,53 @@
+% Template (the optional [n] is the exercise number in the book; omit it to
+% use the next number in this chapter):
+%
+% \begin{exercise}[1]
+%   \label{ex:ch7-1}
+%   Statement of the exercise.
+% \end{exercise}
+%
+% \begin{solution}
+%   Your solution.
+% \end{solution}
+
+\begin{exercise}[1]
+  \label{ex:ch7-1}
+  Let $K$ be a local field and let $\psi$ be a nontrivial unitary character on
+  $K$; that is, a continuous, nontrivial homomorphism from $K$ as an additive
+  group into $S^1$, the circle group. For each $a \in K$, define
+  $\psi_a \colon K \to S^1$ by
+  \[
+    \psi_a(x) = \psi(ax).
+  \]
+  \begin{enumerate}[label=(\alph*)]
+    \item Show that $\psi_a$ is again a unitary character of $K$, and that
+      $\psi_a$ is trivial if and only if $a = 0$.
+    % The book writes "\psi \mapsto \psi_a" (typo).
+    \item Show that $a \mapsto \psi_a$ defines a continuous, injective
+      homomorphism $\alpha_\psi$ of $K$ into its Pontryagin dual $\dual{K}$.
+    % The book writes "for all b \in F" (typo).
+    \item Show that the image of $\alpha_\psi$ is dense in $\dual{K}$.
+      [\emph{Hint}: Show that $\psi_a(b) = 1$ for all $a \in K$ if and only if
+      $b = 0$.]
+    \item Show that $\alpha_\psi$ is bicontinuous.
+    \item Show that $\alpha_\psi(K)$ is a complete, hence closed, subgroup of
+      $\dual{K}$. Conclude that $\alpha_\psi$ is an isomorphism of topological
+      groups.
+  \end{enumerate}
+\end{exercise}
+
+\begin{exercise}[2]
+  \label{ex:ch7-2}
+  Let $K$ be a non-Archimedean local field with ring of integers $\gotho_K$
+  and maximal ideal $P$. Fix a nontrivial unitary character $\psi$ of $K$.
+  Let $P^m$ be the conductor of $\psi$; that is, the largest fractional ideal
+  $P^m$ on which $\psi$ is trivial. Let $\alpha_\psi$, as defined in
+  \cref{ex:ch7-1}, be the isomorphism between $K$ and its Pontryagin dual.
+  \begin{enumerate}[label=(\alph*)]
+    \item Show that via $\alpha_\psi$, $P^m$ identifies with the Pontryagin
+      dual of $\dual{\gotho}_K$. (This is also the inverse different of $K$,
+      which soon makes its appearance.)
+    \item Let $n \ge 1$ and $x \in K$. Show that $xP^n \subseteq \ker(\psi)$
+      if and only if $x \in P^{m-n}$.
+  \end{enumerate}
+\end{exercise}

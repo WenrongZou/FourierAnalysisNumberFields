@@ -63,21 +63,41 @@
 \author{Wenrong Zou}
 \date{\today}
 
-% Uncomment to compile only selected chapters (faster):
-% \includeonly{chapters/ch3-duality}
-
 \begin{document}
 
 \maketitle
 \tableofcontents
 
-\include{chapters/ch1-topological-groups}
-\include{chapters/ch2-representation-theory}
-\include{chapters/ch3-duality}
-\include{chapters/ch4-arithmetic-fields}
-\include{chapters/ch5-adeles-ideles}
-\include{chapters/ch6-class-field-theory}
-\include{chapters/ch7-tates-thesis}
+% Each chapter has its own folder chapters/chN_<name>/; the exercises of
+% that chapter go into Exercise.tex there.
+
+\chapter{Topological Groups}
+\label{ch:ch1}
+\input{chapters/ch1_topological_groups/Exercise}
+
+\chapter{Some Representation Theory}
+\label{ch:ch2}
+\input{chapters/ch2_representation_theory/Exercise}
+
+\chapter{Duality for Locally Compact Abelian Groups}
+\label{ch:ch3}
+\input{chapters/ch3_duality/Exercise}
+
+\chapter{The Structure of Arithmetic Fields}
+\label{ch:ch4}
+\input{chapters/ch4_arithmetic_fields/Exercise}
+
+\chapter{Adeles, Ideles, and the Class Groups}
+\label{ch:ch5}
+\input{chapters/ch5_adeles_ideles/Exercise}
+
+\chapter{A Quick Tour of Class Field Theory}
+\label{ch:ch6}
+\input{chapters/ch6_class_field_theory/Exercise}
+
+\chapter{Tate's Thesis and Applications}
+\label{ch:ch7}
+\input{chapters/ch7_tates_thesis/Exercise}
 
 \begin{thebibliography}{RV99}
 \bibitem[RV99]{RV}
