@@ -33,28 +33,28 @@
       such that $\mu$ identifies with its dual measure under $\alpha$. One
       calls $\mu$ the \emph{self-dual} measure on $G$ relative to the
       isomorphism $\alpha$.
-    \item Let $G$ be the additive group of a non-Archimedean local field $K$,
-      $\psi \colon K \to S^1$ the standard unitary character, and
+    \item Let $G$ be the additive group of a non-Archimedean local field $F$,
+      $\psi \colon F \to S^1$ the standard unitary character, and
       $\alpha_\psi$ the isomorphism of \cref{ex:ch7-1}. Denote by $\dd x$ the
       self-dual measure relative to $\psi$ (that is, relative to
-      $\alpha_\psi$). Show that $\vol(\gotho_K, \dd x) = N(\calD_K)^{-1/2}$,
-      where $\calD_K$ denotes the different of $K$.
+      $\alpha_\psi$). Show that $\vol(\gotho_F, \dd x) = N(\calD_F)^{-1/2}$,
+      where $\calD_F$ denotes the different of $F$.
   \end{enumerate}
 \end{exercise}
 
 \begin{exercise}[8]
   \label{ex:ch7-8}
   In this exercise we analyze the dependence of the epsilon factor on the
-  additive character $\psi$ and the Haar measure $\dd x$. Let $K$ be a local
+  additive character $\psi$ and the Haar measure $\dd x$. Let $F$ be a local
   field and consider $\varepsilon(\chi, \psi, \dd x)$ for any
-  $\chi \in \Hom_{\cont}(K^\times, \CC^\times)$.
+  $\chi \in \Hom_{\cont}(F^\times, \CC^\times)$.
   \begin{enumerate}[label=(\alph*)]
     \item For every positive real number $t$, show that
       \[
         \varepsilon(\chi, \psi, t \cdot \dd x)
         = t \cdot \varepsilon(\chi, \psi, \dd x).
       \]
-    \item Let $a \in K^\times$, and let $\psi_a$ denote the character defined
+    \item Let $a \in F^\times$, and let $\psi_a$ denote the character defined
       by $\psi_a(x) = \psi(ax)$. Show that
       \[
         \varepsilon(\chi, \psi_a, \dd x)
@@ -63,14 +63,14 @@
     % Note: replacing \psi by \psi_a with a = \pi^k turns the conductor P^m
     % into P^{m-k}; comparing with (b) shows that the exponent below must be
     % n - m (Tate's a(\chi) + n(\psi) with n(\psi) = -m), not m + n.
-    \item Let $K$ be non-Archimedean with unique prime ideal $P$, and let
+    \item Let $F$ be non-Archimedean with unique prime ideal $P$, and let
       $P^n$ and $P^m$ be the conductors of $\chi$ and $\psi$, respectively.
-      Then show for every unramified character $\nu$ of $K^\times$ that
+      Then show for every unramified character $\nu$ of $F^\times$ that
       \[
         \varepsilon(\chi\nu, \psi, \dd x)
         = \nu(\pi^{m+n}) \varepsilon(\chi, \psi, \dd x)
       \]
-      where $\pi$ is a uniformizing parameter for $\gotho_K$. Note that the
+      where $\pi$ is a uniformizing parameter for $\gotho_F$. Note that the
       first factor on the right is well-defined because $\nu$ is unramified.
       [\emph{Hint}: Use the explicit formula given in \RV{Eq.~(7.6)}.]
   \end{enumerate}
@@ -78,9 +78,9 @@
 
 \begin{exercise}[9]
   \label{ex:ch7-9}
-  Let $K$ be a local field with standard character $\psi$ and self-dual
+  Let $F$ be a local field with standard character $\psi$ and self-dual
   measure $\dd x$, and let $\chi = \omega\abs{\cdot}^s$ be a
-  (quasi-)character on $K^\times$ with $\omega$ unitary. Put
+  (quasi-)character on $F^\times$ with $\omega$ unitary. Put
   \[
     W(\omega) = \varepsilon(\chi, \psi, \dd x)\big|_{s=1/2}.
   \]
@@ -91,62 +91,62 @@
       \]
       Conclude that $\abs{W(\omega)} = 1$. [\emph{Hint}: First prove that
       $W(\overline{\omega}) = \omega(-1)\overline{W(\omega)}$.]
-    \item Using \RV{Section 7.1}, show that for $K = \RR$, $W(\omega) = 1$
+    \item Using \RV{Section 7.1}, show that for $F = \RR$, $W(\omega) = 1$
       (respectively, $-i$) for $\omega = 1$ (respectively, $\omega = \sgn$).
-      Show further that when $K = \CC$, we have $W(\omega) = 1$.
+      Show further that when $F = \CC$, we have $W(\omega) = 1$.
     % The scan appears to read \psi(x\pi^{d-n}); since \psi has conductor
-    % \calD_K^{-1} = \pi^{-d}\gotho_K, the exponent must be -d-n
-    % (cf. Exercise 10(a), where c\gotho_K = \pi^n\calD_K).
-    \item Let $K$ be non-Archimedean with uniformizing parameter $\pi$, and
-      let $\omega$ as above have conductor $\pi^n\gotho_K$. Put
+    % \calD_F^{-1} = \pi^{-d}\gotho_F, the exponent must be -d-n
+    % (cf. Exercise 10(a), where c\gotho_F = \pi^n\calD_F).
+    \item Let $F$ be non-Archimedean with uniformizing parameter $\pi$, and
+      let $\omega$ as above have conductor $\pi^n\gotho_F$. Put
       \[
         G = \sum_{x \in U/U_n} \overline{\omega}(x) \psi(x\pi^{-d-n})
       \]
-      where $\pi^d\gotho_K = \calD_K$ (the different),
-      $U_r = 1 + \pi^r\gotho_K$ ($r > 0$), and $U$ is the full group of units
-      in $\gotho_K$. Show directly that $\abs{G}^2 = q^n$. Then appeal to
+      where $\pi^d\gotho_F = \calD_F$ (the different),
+      $U_r = 1 + \pi^r\gotho_F$ ($r > 0$), and $U$ is the full group of units
+      in $\gotho_F$. Show directly that $\abs{G}^2 = q^n$. Then appeal to
       \RV{Eq.~(7.6)} to deduce (once again) that $\abs{W(\omega)} = 1$.
   \end{enumerate}
 \end{exercise}
 
 \begin{exercise}[10]
   \label{ex:ch7-10}
-  (Tate) Let $K$ be a non-Archimedean local field with uniformizing parameter
-  $\pi$, and let $\omega$ be a unitary character of $K^\times$ with conductor
-  $\pi^n\gotho_K$. Let $\gotha$ be an ideal of $\gotho_K$ such that
-  $\gotha^2$ divides $\pi^n\gotho_K$. Put
-  $\gothb = \gotha^{-1}\pi^n\gotho_K \subseteq \gotho_K$.
+  (Tate) Let $F$ be a non-Archimedean local field with uniformizing parameter
+  $\pi$, and let $\omega$ be a unitary character of $F^\times$ with conductor
+  $\pi^n\gotho_F$. Let $\gotha$ be an ideal of $\gotho_F$ such that
+  $\gotha^2$ divides $\pi^n\gotho_F$. Put
+  $\gothb = \gotha^{-1}\pi^n\gotho_F \subseteq \gotho_F$.
   \begin{enumerate}[label=(\alph*)]
-    \item Show that there exists an element $c \in K$ such that
-      $c\gotho_K = \pi^n\calD_K$ and also
+    \item Show that there exists an element $c \in F$ such that
+      $c\gotho_F = \pi^n\calD_F$ and also
       \[
         \omega(1+t) = \psi(c^{-1}t)
       \]
       for all $t \in \gothb$. [\emph{Hint}: Suppose that
-      $\gotha \neq \gotho_K$, so that $\pi$ divides $\gotha$. If
-      $t, z \in \gothb$, then $tz \in \pi^n\gotho_K$. Consequently,
+      $\gotha \neq \gotho_F$, so that $\pi$ divides $\gotha$. If
+      $t, z \in \gothb$, then $tz \in \pi^n\gotho_F$. Consequently,
       $\omega(1+t)\omega(1+z) = \omega(1+t+z)$, and therefore the map that
       sends $t$ to $\omega(1+t)$ is a character of the additive group
-      $\gothb$, and this extends to one on $K$. Now appeal to the isomorphism
-      of $K$ with its dual.]
-    \item For $c$ as in the previous part and $K$ now assumed to have
+      $\gothb$, and this extends to one on $F$. Now appeal to the isomorphism
+      of $F$ with its dual.]
+    \item For $c$ as in the previous part and $F$ now assumed to have
       characteristic zero, show that
       \[
         W(\omega) = N(\gothb\gotha^{-1})^{-1/2}
         \sum_{x \in (1+\gotha)/(1+\gothb)}
         \overline{\omega}(c^{-1}x)\psi(c^{-1}x).
       \]
-      \textsc{Note}. When $\gotha = \gotho_K$, this result is identical to
+      \textsc{Note}. When $\gotha = \gotho_F$, this result is identical to
       \RV{Eq.~(7.6)}.
     \item For $\omega$ unramified, show that $W(\omega) = \omega(\pi)^d$ if
-      $\pi^d\gotho_K = \calD_K$.
+      $\pi^d\gotho_F = \calD_F$.
     % The scan reads |W(\omega)|_p; the subscript should be the place v.
     \item Let $E$ be a number field containing $W(\omega)$. Then show that
       for every place $v$ of $E$ not dividing the residual characteristic $p$
-      of $K$, we have $\abs{W(\omega)}_v = 1$. Using the Artin product
+      of $F$, we have $\abs{W(\omega)}_v = 1$. Using the Artin product
       formula, conclude that if $E$ has a unique place $u$ above $p$, then
       also $\abs{W(\omega)}_u = 1$.
-    \item Suppose that $\pi^n\gotho_K = \pi\gotha$. Then, using part~(b),
+    \item Suppose that $\pi^n\gotho_F = \pi\gotha$. Then, using part~(b),
       show that $z = (\omega(c^{-1})W(\omega))^2$ lies in the cyclotomic
       extension $E = \QQ(e^{2\pi i/p^r})$ for some $r \ge 1$. Show further,
       using part~(d), that $z$ must be a root of unity.
@@ -154,6 +154,6 @@
       \emph{unramified} (that is, $n = 0$) or \emph{wildly ramified} (that
       is, $n \ge 2$). Show that $W(\omega)$ is a root of unity.
       [\emph{Hint}: This is clear if $n$ is even. When $n$ is odd, write
-      $\pi^n\gotho_K = \pi\gotha$ and apply the previous part.]
+      $\pi^n\gotho_F = \pi\gotha$ and apply the previous part.]
   \end{enumerate}
 \end{exercise}
