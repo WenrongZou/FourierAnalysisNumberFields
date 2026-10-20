@@ -152,11 +152,13 @@ of topological groups.
       Show that $\psi \colon \QQ_p \to S^1$ is a nontrivial unitary character
       of conductor $\ZZ_p$ and that it identifies with the composite map
       $\QQ_p \to \QQ_p/\ZZ_p \to \QQ/\ZZ \to S^1$.
-    % The scan appears to read a_1 (the coefficient of t) in the exponent
-    % below. With a_1 the conductor is indeed F_p[[t^{-1}]], but then
-    % Exercise 5(d) fails. The character compatible with Exercises 5 and 6
-    % (the residue of x dt at infinity) is x |-> e^{-2\pi i a_{-1}/p}, whose
-    % conductor is t^{-2} F_p[[t^{-1}]].
+    % Changed from the book: the book has \psi_\infty(x) = e^{2\pi i a_1/p}
+    % (a_1 the coefficient of t) with conductor F_p[[t^{-1}]]. Then
+    % Exercise 5(d) fails for either sign: every y there lies in
+    % t^{-1}F_p[[t^{-1}]], so a_1(y) = 0 (e.g. \pi = t, y = 1/t gives
+    % \psi_v(y)\psi_\infty(y) = e^{2\pi i/p}). We use instead the character
+    % compatible with Exercises 5 and 6 (the residue of x dt at infinity),
+    % x |-> e^{-2\pi i a_{-1}/p}, whose conductor is t^{-2} F_p[[t^{-1}]].
     \item Let $K_\infty$ denote the completion of $K = \FF_p(t)$ defined by
       the place $t^{-1}$. Show that $K_\infty = \FF_p\lseries{t^{-1}}$; that is,
       that each $x \in K_\infty$ can be uniquely represented by a formal power
@@ -167,10 +169,13 @@ of topological groups.
       with $a_n \in \ZZ/p\ZZ$ for all $n$ less than or equal to the integer
       $r$. Put
       \[
-        \psi_\infty(x) = e^{2\pi i a_1/p} \in S^1.
+        \psi_\infty(x) = e^{-2\pi i a_{-1}/p} \in S^1.
       \]
       Show that $\psi_\infty$ is a nontrivial unitary character of $K_\infty$
-      of conductor $\FF_p\pseries{t^{-1}}$.
+      of conductor $t^{-2}\FF_p\pseries{t^{-1}}$. (\emph{Note}: This differs
+      from the book, which puts $\psi_\infty(x) = e^{2\pi i a_1/p}$, of
+      conductor $\FF_p\pseries{t^{-1}}$; with that choice part~(d) of
+      \cref{ex:ch7-5} fails.)
     \item Let $\pi$ be any irreducible polynomial in $\FF_p[t] \subseteq K$,
       and let $K_\pi$ denote the completion of $K$ defined by the prime ideal
       $(\pi)$, with residue field $k$, which we may identify with a
@@ -221,9 +226,11 @@ And it identisfied with the composite map $\QQ_p \to \QQ_p / \ZZ_p \to \QQ/ \ZZ 
 \[x \mapsto p ^ n x \mapsto r / p ^ n \mapsto e ^ {2 \pi i r / p ^ n}. \]
 
 (b) It is easy to see that $\psi_\infty (x + y) = \psi_\infty(x) \psi_\infty(y)$. And for
-every $x \in \FF_p\pseries{t^{-1}}$, $a_1 = 0$, then $\psi_\infty(x) = e^{2 \pi i a_1 / p} = 1$.
-And for $t \in t \FF_p\pseries{t^{-1}}$, $\psi_\infty (t) = e^{2 \pi i / p} \neq 1$. Then
-the conductor of $\psi_\infty$ is $\FF_p\pseries{t^{-1}}$.
+every $x \in t^{-2}\FF_p\pseries{t^{-1}}$, $a_{-1} = 0$, then $\psi_\infty(x) = e^{-2 \pi i a_{-1} / p} = 1$.
+And for $t^{-1} \in t^{-1} \FF_p\pseries{t^{-1}}$, $\psi_\infty (t^{-1}) = e^{-2 \pi i / p} \neq 1$.
+Since every fractional ideal strictly containing $t^{-2}\FF_p\pseries{t^{-1}}$ contains
+$t^{-1}\FF_p\pseries{t^{-1}}$, the conductor of $\psi_\infty$ is $t^{-2}\FF_p\pseries{t^{-1}}$.
+In particular, $\psi_\infty$ is trivial on an open subgroup, hence continuous.
 
 (c) Write $A = \FF_p[t], d = \deg \pi, q = p ^ d$. Let $\gotho_\pi = \varprojlim A / (\pi^n)$ be the
 completion of $A$ at $(\pi)$, $K_\pi = \gotho_\pi [1/ \pi]$ and the residue field $k = \gotho_\pi
@@ -331,9 +338,12 @@ $\tr(a\gotho) \subseteq \ZZ_p$, i.e. $a\in \calD_F^{-1}$.
 
   For each $\psi_p$ is additive and there is only finitely many places $v$ lie over $p$. Then we have
 
-  \[\psi (\tr(x)) = \prod_{p \le \infty} \psi_p(\sum_{v \mid p}(\tr_{K_v/ \QQ_p} (x_v))) =
+  \[\psi (\tr_{K/ \QQ}(x)) = \prod_{p \le \infty} \psi_p(\sum_{v \mid p}(\tr_{K_v/ \QQ_p} (x_v))) =
   \prod_{p \le \infty} \prod_{v \mid p} \psi_p (\tr_{K_v/ \QQ_p}(x_v)) = \prod_{v} \psi_v(x_v) = \psi_K(x).
   \]
+
+  By (a), we have that for all $y \in \QQ$, $\psi(y) = 1$ and for all $x \in K$,
+  $\tr_{K/\QQ} (x) \in \QQ$, then $\psi_K(x) = \psi(\tr_{K/\QQ} (x)) = 1$.
 \end{solution}
 
 \begin{exercise}[5]
@@ -345,7 +355,7 @@ $\tr(a\gotho) \subseteq \ZZ_p$, i.e. $a\in \calD_F^{-1}$.
       $d \ge 1$. Show that $K$ has a unique place $v$ such that the polynomial
       $\pi(t)$ generates the maximal ideal of
       $\gotho_v = \{\alpha \in K_v : \abs{\alpha}_v \le 1\}$. Show further
-      that $q_v = \operatorname{Card}(\gotho_v/\pi\gotho_v) = p^d$, and that
+      that $q_v = \card(\gotho_v/\pi\gotho_v) = p^d$, and that
       the polynomials in $\FF_p[t]$ of degree less than $d$ in fact generate
       $\gotho_v/\pi\gotho_v$.
     % Note: as defined, K^{(v)} contains the constants, so
@@ -374,9 +384,9 @@ $\tr(a\gotho) \subseteq \ZZ_p$, i.e. $a\in \calD_F^{-1}$.
       (This is of course well-defined despite the status of $c_1$ as a residue
       class modulo the prime $p$.) Show that $\psi_v$ is a nontrivial
       character of $K_v$ of conductor $\gotho_v$.
-    % See the note at Exercise 3(b): the identity \psi_v(y)\psi_\infty(y) = 1
-    % requires \psi_\infty(x) = e^{-2\pi i a_{-1}/p}. The book writes f for z
-    % in the hint.
+    % \psi_\infty is the corrected character of Exercise 3(b); with the
+    % book's e^{2\pi i a_1/p} the identity \psi_v(y)\psi_\infty(y) = 1 fails.
+    % The book writes f for z in the hint.
     \item Let $v$, $\pi$, and $y$ be as in the previous part. Show that
       $y \equiv c_1 t^{-1} \pmod{t^{-2}}$. Conclude that
       $\psi_v(y)\psi_\infty(y) = 1$, where $\psi_\infty$ is as in part~(b) of
@@ -385,3 +395,35 @@ $\tr(a\gotho) \subseteq \ZZ_p$, i.e. $a\in \calD_F^{-1}$.
       $y = z g^{-n} t^{-nd}$.]
   \end{enumerate}
 \end{exercise}
+
+\begin{solution}
+  Let $A = \FF_p[t]$. We consider $\pi$ to be a monic polynomial.
+
+  (a) Existence: take $v = v_\pi$.
+
+  Uniqueness: suppose that $|\pi|_v < 1$.
+  \begin{itemize}
+    \item Case (1): $|t|_v > 1$. For $f = \sum_{i= 0}^m a_i t^i$ with $a_m \neq 0$,
+    the terms have distinct absolute values $|t|_v^i$. Therefore, $|f|_v = |t|_v^m$.
+    and in particular $|\pi|_v = |t|_v^d > 1$. This is a contradiction.
+    \item Case (2): $|t|_v \le 1$. By triangle inequality, $A \subseteq \gotho_v$,
+    and $P = \{f \in A : |f|_v < 1\}$ is a proper prime ideal containing $\pi$.
+    Since $(\pi)$ is maximal, then $P = (\pi)$. Write $f = \pi ^ k g$ with
+    $\pi \nmid g$. Then $|g|_v = 1$, so $|f|_v = |\pi|_v ^ {\ord_\pi f}$.
+    Hence, place $v$ is equivalent to $v_\pi$.
+  \end{itemize}
+
+  As we know that $\gotho_v/ \pi \gotho_v \cong A / (\pi)$. Then we have
+  that $\card{\gotho_v / \pi \gotho_v} = p ^ d$.
+
+  (b) Note that $K ^ {(v)} \cap \gotho_v = \{x \in K : |x|_u \le 1,  \forall u\}$.
+  Such an $x$ does not have finite poles, then $x \in A$. And since $|x|_\infty \le 1$,
+  then $\deg x \le 0$. Then $K^{(v)} \cap \gotho_v = \FF_p$, but not $0$.
+  Therefore the sum $K_v=K^{(v)}+\mathfrak o_v$ is \textbf{not direct sum}.
+  It can be written as a direct sum as follow,
+  \[K_v=K^{(v)}_0\oplus\mathfrak o_v, \]
+  where $K^{(v)}_0 = \{y \in K^{(v)}: |y|_\infty < 1 \}$.
+
+  Finite $v$. Let $x \in K_v$ with $x \notin \gotho_v $. Then $x$ can be written as
+  \[x = \sum_{n \ge r} a_n \pi ^ n,\]
+\end{solution}
