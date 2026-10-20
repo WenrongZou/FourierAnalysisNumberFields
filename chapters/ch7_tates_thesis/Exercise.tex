@@ -56,7 +56,7 @@ Then we have that
 \[|\psi_a(x)- \psi_b(x)| = |\psi_b|\cdot |\psi_{a-b}(x) - 1 | = |\psi_{a-b}(x) - 1|. \]
 So it suffices to show that for each compact $C$ and $\epsilon > 0$, there is a $\delta >0$, such
 that
-% \[|a| < \delta \Rightarrow |\psi_a(x) - 1| < \epsilon. \]
+% \[|a| < \delta \implies |\psi_a(x) - 1| < \epsilon. \]
 $\forall |a| < \delta$, $|\psi_a(x) - 1| < \epsilon$.
 
 Given an $\epsilon > 0$. Since $\psi$ is continuous at $0$ and $\psi(0) = 1$, then there is an $r > 0$, such that
@@ -69,7 +69,7 @@ Injectivity is followed from (a).
 
 (c)
 Note that
-\[\forall a \in F, \psi_a(b) = 1, \Leftrightarrow \forall a \in F, \psi(a b) = 1, \Leftrightarrow b = 0. \]
+\[\forall a \in F, \psi_a(b) = 1 \iff \forall a \in F, \psi(a b) = 1 \iff b = 0. \]
 
 Recall that we have the fact of Pontryagin dual: let $G$ be a locally compact abelian group
 and $H$ be a proper closed subgroup of $G$. Then there is a nontrivial character $\chi$ of $G$, such that
@@ -86,7 +86,7 @@ $b_0 = 0$, which contradicts to $\chi$ is a nontrivial character of $\dual{F}$.
 (d) First, reduce to continuity at $0 \in F$. Note that $\psi_a \in \psi_{a_0} W(1, C, \epsilon)$ if and only if
 $\psi_{a - a_0} \in W(1, C, \epsilon)$. Then it suffices to show that $\forall r > 0$, there are a
 compact $C$ and $\epsilon > 0$, such that
-\[\psi_a\in W(1, C, \epsilon) \Rightarrow |a|< r. \]
+\[\psi_a\in W(1, C, \epsilon) \implies |a|< r. \]
 
 Since $\psi$ is nontrivial, pick $y \in F$ such that $\psi(y) \neq 1$, and set
 $\epsilon = |\psi(y) - 1| > 0$. Now choose $C \coloneqq \{x \in F: |x| \le |y|/r \}$.
@@ -100,7 +100,7 @@ which contradicts to $\psi_a\in W(1, C, \epsilon)$. Therefore, $|a| < r$.
 (e) Given a Cauchy sequence $\{\psi_{a_n}\}_n$ in $\alpha_\psi(F)$. Then we have that
 for every neighborhood $W$ of $1$ there is an $N$ such that $\psi_{a_n - a_m} \in W$
 for all $n, m \ge N$. By (d), there is a neighborhood $W$ such that
-\[\psi_b \in W \Rightarrow |b| < r. \]
+\[\psi_b \in W \implies |b| < r. \]
 
 Then we have that $\{a_n\}_n$ is a Cauchy sequence in $F$. Since $F$ is complete,
 then $\{a_n\}_n$ converges uniquely to $a \in F$. By (b), we have that $\psi_{a_n}$ converges
@@ -126,6 +126,16 @@ of topological groups.
   \end{enumerate}
 \end{exercise}
 
+\begin{solution}
+  (a) Claim: $\alpha(P^m)$ is the annilator of $\gotho_F$ in $\dual{F}$, i.e.
+    \[\alpha(P^m) = \gotho_F^\perp \coloneqq \{\chi \in \dual{F} : \chi|_{\gotho_F} = 1\}. \]
+  In fact, for every $x \in F$,
+  \[\psi_x \in \gotho_F^\perp \iff \psi(x \gotho_F) = 1 \iff x\gotho_F \subseteq \ker \psi
+    \iff x\gotho_F \subseteq P^m \iff x \in P^m. \]
+  (b) Note that
+  \[ xP^n \subseteq \ker (\psi) \iff x P^n \subseteq P ^ m \iff v(x) + n \ge m \iff x \in P^{m - n}. \]
+\end{solution}
+
 \begin{exercise}[3]
   \label{ex:ch7-3}
   In this exercise we construct nontrivial characters for non-Archimedean
@@ -148,7 +158,7 @@ of topological groups.
     % (the residue of x dt at infinity) is x |-> e^{-2\pi i a_{-1}/p}, whose
     % conductor is t^{-2} F_p[[t^{-1}]].
     \item Let $K_\infty$ denote the completion of $K = \FF_p(t)$ defined by
-      the place $t^{-1}$. Show that $K_\infty = \FF_p((t^{-1}))$; that is,
+      the place $t^{-1}$. Show that $K_\infty = \FF_p\lseries{t^{-1}}$; that is,
       that each $x \in K_\infty$ can be uniquely represented by a formal power
       series
       \[
@@ -160,7 +170,7 @@ of topological groups.
         \psi_\infty(x) = e^{2\pi i a_1/p} \in S^1.
       \]
       Show that $\psi_\infty$ is a nontrivial unitary character of $K_\infty$
-      of conductor $\FF_p[[t^{-1}]]$.
+      of conductor $\FF_p\pseries{t^{-1}}$.
     \item Let $\pi$ be any irreducible polynomial in $\FF_p[t] \subseteq K$,
       and let $K_\pi$ denote the completion of $K$ defined by the prime ideal
       $(\pi)$, with residue field $k$, which we may identify with a
@@ -191,6 +201,75 @@ of topological groups.
   \end{enumerate}
 \end{exercise}
 
+\begin{solution}
+(a) It is easy to see that $\psi$ is continuous and $|\psi(x)| = 1$.
+Note that
+\[\forall x \in \ZZ_p, \ \psi(x) = e ^ {2 \pi i r} = 1, i.e. \ \psi|_{\ZZ_p} = 1 \]
+And since $\psi (1 / p) = e^{2 \pi i/ p} \neq 1$, then $\ZZ_p$ is the largest fractional ideal
+that $\psi$ is trivial.
+
+For any $x_1, x_2\in \QQ_p$, we are going to show $\psi(x_1 + x_2) = \psi(x_1) \psi(x_2)$.
+Let $n_i$ be the smallest nonnegative integer such that $p^{n_i} x_i$ lies in $\ZZ_p$, and let
+$r_i \in \ZZ$ be such that $r_i \equiv p^{n_i} x_i \pmod{p^{n_i}}$. WLOG, we can assume that
+$0 < n_1 < n_2$. Then $n_2$ is the smallest integer such that $p^{n_2} (x + y) \in \ZZ_p$,
+and $p^{n_2}(x + y) \equiv p^{n_2 - n_1} p^{n_1} x + p^ {n_2} y \equiv p^{n_2 - n_1} r_1 + r_2
+\pmod{p ^ {n_2}}$. Therefore,
+\[\psi(x + y) = e^{2\pi i (p^{n_2 - n_1} r_1 + r_2) / p^{n_2}} =  e^{2\pi i r_1/ p^{n_1}} e^{2 \pi i r_2/ p^{n_2}}
+= \psi(x) \psi(y).  \]
+It follows that $\psi$ is a nontrivial unitary character of conductor $\ZZ_p$.
+And it identisfied with the composite map $\QQ_p \to \QQ_p / \ZZ_p \to \QQ/ \ZZ \to S^1$ as follows:
+\[x \mapsto p ^ n x \mapsto r / p ^ n \mapsto e ^ {2 \pi i r / p ^ n}. \]
+
+(b) It is easy to see that $\psi_\infty (x + y) = \psi_\infty(x) \psi_\infty(y)$. And for
+every $x \in \FF_p\pseries{t^{-1}}$, $a_1 = 0$, then $\psi_\infty(x) = e^{2 \pi i a_1 / p} = 1$.
+And for $t \in t \FF_p\pseries{t^{-1}}$, $\psi_\infty (t) = e^{2 \pi i / p} \neq 1$. Then
+the conductor of $\psi_\infty$ is $\FF_p\pseries{t^{-1}}$.
+
+(c) Write $A = \FF_p[t], d = \deg \pi, q = p ^ d$. Let $\gotho_\pi = \varprojlim A / (\pi^n)$ be the
+completion of $A$ at $(\pi)$, $K_\pi = \gotho_\pi [1/ \pi]$ and the residue field $k = \gotho_\pi
+/ \pi \gotho_\pi = A / (\pi) = \FF_q$. Take
+\[S = \{f \in A : \deg f < d\}. \]
+By division algorithm, we have a bijection between $S$ and $A / (\pi) = k$.
+
+Next we want to show that there is a unique $\pi$-adic expansion. WLOG, we only consider
+$x \in \gotho_\pi$. For general $x \neq 0$, take $r = v(x)$ and apply the result to
+$y = \pi ^{-r} x \in \gotho_\pi$.
+
+Since $S \to k$ is surjective, choose $a_0 \in S$ such that $x \equiv a_0 \pmod{\pi}$. Then take
+$x_1 = (x - a_0)/ \pi$ and choose $a_1 \in S$ such that $x_1 \equiv a_1 \pmod{\pi}$. By
+induction, we have
+\[x - \sum_{i = 0}^{n-1} a_i \pi ^ i = \pi^n x_n. \]
+Then $|x - \sum_{i = 0}^{n-1} a_i \pi ^ i| \le q ^ -n \to 0$.
+Therefore, $x = \sum_{i\ge 0}a_i \pi ^i$. And the uniqueness follows from the irreducibility of
+$\pi$.
+
+Since $\tr_{k/\FF_p}(x + y) = \tr_{k/ \FF_p}(x) + \tr_{k/ \FF_p}(y)$, then
+$\psi_\pi(x + y) = \psi_\pi(x) \psi_\pi(y)$.
+
+(d) Homomorphism property follows from the fact that $\tr_{F/F_0}$ is additive. Since $\tr_{F/F_0}$
+is $F_0$ linear on finite dimensional $F_0$-space, then $\tr_{F/F_0}$ is continuous.
+Since $F/ F_0$ is separable extension, then $\tr_{F/F_0}$ is surjective, then $\psi(x)$ is nontrivial.
+
+(e) Since the characteristic of $F$ is $0$, then we assume that $F_0= \QQ_p$.
+Recall that the conductor $\psi_0$ is $\ZZ_p$ and
+\[\calD_F ^{-1} = {x \in F: \tr(x \gotho) \subseteq \ZZ_p}.\]
+
+Claim: For any fractional ideal $\gotha$, $\psi|_{\gotha} = 1$ if and only if $\gotha \subseteq \calD_F^{-1}$.
+
+\textit{Proof of claim:} Note that
+\[\psi|_\gotha = 1 \iff \psi_0|_{\tr(\gotha)} = 1 \iff \tr(\gotha) \subseteq \ZZ_p. \]
+It remains to show that $\tr(\gotha) \subseteq \ZZ_p \iff \gotha \subseteq \calD_F^{-1}$.
+
+($\impliedby$): For each $a \in \gotha \subseteq \calD_F^{-1}$, by definition of $\calD_F^{-1}$,
+we have that $\tr(a) \in \ZZ_p$.
+
+($\implies$): For each $a \in \gotha$, $a \gotho \subseteq \gotha$. It follows that
+$\tr(a\gotho) \subseteq \ZZ_p$, i.e. $a\in \calD_F^{-1}$.
+
+\color{red}{TODO: Fourier transform.}
+
+\end{solution}
+
 \begin{exercise}[4]
   \label{ex:ch7-4}
   We shall now construct the standard character on $\AAA_K/K$ for an
@@ -219,6 +298,43 @@ of topological groups.
       $\psi_K$ is trivial on $K$.
   \end{enumerate}
 \end{exercise}
+
+\begin{solution}
+  (a) Recall that
+  \begin{theorem}[Artin product formula]
+    For a global field $K$, namely number field or function field of a curve over $\FF_q$, and
+    any non-zero $x \in K$, we have that
+    \[ \prod_{v} |x|_v = 1, \]
+    where $v$ run over all places of $K$.
+  \end{theorem}
+
+  It is easy to check that $\psi(x + y) = \psi(x) \psi(y)$. Since
+  for any place $v$, $|\psi_v(x_v)| = 1$, then $|\psi(x)| = 1$.
+  Note that: a homomorphism of topological groups that is continuous
+  on a open subgroup is continuous everywhere. It suffices to show that
+  $\psi$ is continuous on some open subgroup $U$.
+  Take $U = \RR \times \prod_{p} \ZZ_p$. Then $\psi(x) = e^{-2\pi i x_\infty}$,
+  which is continuous.
+
+  Note that as a additive group $\QQ$ is generated by $1$ and the numbers
+  $1/ p ^ k, k \ge 1$. Then it suffices to check that for all prime number $p$ and positive $k$,
+  $\psi(1 / p ^ k) = 1$. In fact,
+  \[\psi(1 / p ^ k) = \psi_p(1/p^k) \psi_\infty(1 / p^k) =
+  e^{2 \pi i /p^k} e^{-2 \pi i /p ^ k } = 1. \]
+
+  (b) It follows from similar discussion above.
+
+  (c) Recall that $\tr : \AAA_K \to \AAA_\QQ$ is defined componentwise by
+
+  \[\tr(x)_p = \sum_{v \mid p} \tr_{K_v/ \QQ_p} (x_v), \quad  \tr(x)_\infty =
+  \sum_{v \mid \infty} \tr_{K_v/ \RR} (x _v). \]
+
+  For each $\psi_p$ is additive and there is only finitely many places $v$ lie over $p$. Then we have
+
+  \[\psi (\tr(x)) = \prod_{p \le \infty} \psi_p(\sum_{v \mid p}(\tr_{K_v/ \QQ_p} (x_v))) =
+  \prod_{p \le \infty} \prod_{v \mid p} \psi_p (\tr_{K_v/ \QQ_p}(x_v)) = \prod_{v} \psi_v(x_v) = \psi_K(x).
+  \]
+\end{solution}
 
 \begin{exercise}[5]
   \label{ex:ch7-5}
