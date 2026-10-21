@@ -422,8 +422,55 @@ $\tr(a\gotho) \subseteq \ZZ_p$, i.e. $a\in \calD_F^{-1}$.
   Therefore the sum $K_v=K^{(v)}+\mathfrak o_v$ is \textbf{not direct sum}.
   It can be written as a direct sum as follow,
   \[K_v=K^{(v)}_0\oplus\mathfrak o_v, \]
-  where $K^{(v)}_0 = \{y \in K^{(v)}: |y|_\infty < 1 \}$.
+  where $K^{(v)}_0 = \{y \in K^{(v)}: |y|_\infty < 1 \}$ for $v$ finite, and
+  $K^{(\infty)}_0 = t\FF_p[t]$. In both cases $K^{(v)}_0 \cap \FF_p = 0$, hence
+  $K^{(v)}_0 \cap \gotho_v = 0$ and the sum is direct.
 
-  Finite $v$. Let $x \in K_v$ with $x \notin \gotho_v $. Then $x$ can be written as
-  \[x = \sum_{n \ge r} a_n \pi ^ n,\]
+  Finite $v$. Let $x \in K_v$. Then $x$ can be written as
+  \[x = \sum_{n \ge r} a_n \pi ^ n = \sum_{n = r}^{-1} a_n \pi^n
+    + \sum_{n=0}^\infty a_n \pi^n. \]
+  Note that $\sum_{n = r}^{-1} a_n \pi^n \in K ^{(v)}_0$ and
+  $\sum_{n=0}^{\infty} a_n \pi ^n \in \gotho_v$.
+
+  Infinity $v$. Recall that $K_\infty = \FF_p \lseries{t^{-1}}$ and
+  $x \in K_\infty$ can express as
+  \[x = \sum_{n = -\infty}^{r} a_n t ^ n = \sum_{n = 1}^{r} a_n t^n
+    + \sum_{n = -\infty}^{0} a_n t^n. \]
+
+  And $\gotho_\infty = \FF_p \pseries{t^{-1}}$ and $K^{(\infty)} = \FF_p[t]$. Note that
+  $\sum_{n = 1}^{r} a_n t^n \in t\FF_p[t] = K^{(\infty)}_0$ and
+  $\sum_{n \le 0} a_n t^n \in \gotho_\infty$. Then we have that
+  $K_\infty = K^{(\infty)}_0 \oplus \gotho_\infty$. (Again
+  $K^{(\infty)} \cap \gotho_\infty = \FF_p$, so $K^{(\infty)} + \gotho_\infty$ is not direct.)
+
+  (c) In this part of exercise, we will describe the form of the elements of $K^{(v)}$.
+
+  Let $y \in K ^ {(v)}$ and write $y = a / b$ with $a, b$ coprime and $b$ monic.
+  If there is another prime $\varpi \neq \pi$ divided $b$, then $|y|_\varpi > 1$, which
+  contradicts to $y \in K ^ {(v)}$. So $b = \pi ^ n$. And since $|y|_\infty \le 1$, then
+  $\deg a \le n d$. If $\deg a = n d$, then we can split off the constant as follows:
+  \[y = c + (a - c\pi ^ n)/ \pi^n, \]
+  where $c \in \FF_p \subseteq \gotho_v$ is the leading coefficient of $a$.
+
+  According to above discuss, we have that $y \in K^{(v)}$ can be express as $z / \pi ^ n$
+  with $\deg z < n d$. The coefficient $c_1$ does not depend on the choice of $n$:
+  $z / \pi^n = z\pi / \pi^{n+1}$, and since $\pi$ is monic, the coefficient of
+  $t^{(n+1)d - 1}$ in $z\pi$ equals the coefficient of $t^{nd - 1}$ in $z$. Together with
+  the uniqueness of the decomposition $x = y + \alpha$ in (b), this shows that $\psi_v$ is
+  well defined. Writing two elements of $K^{(v)}_0$ with the same $n$, we see that $c_1$ is
+  additive, so $\psi_v$ is additive. Clearly $|\psi_v(x)| = 1$ for all $x$.
+  Note that for $x \in \gotho_v$ we have that $y = 0$,
+  then $\psi_v|_{\gotho_v} = 1$ i.e. $\psi_v$ is trivial on the open subgroup
+  $\gotho_v$. Then $\psi_v$ is continuous. Hence, $\psi_v$ is a unitary character.
+
+  Note that for $x = t^{d-1}/ \pi \in \pi^{-1} \gotho_v$, $\psi_v (x) = e ^ {2 \pi i / p} \neq 1$. Hence, the conductor of
+  $\psi_v$ is $\gotho_v$.
+
+  (d) Since $\pi$ is monic, $\pi = t ^ d g$, where $g = 1 + b_1 t ^{-1} + \cdots + b_d t ^ {-d}$.
+  Hence, $g \in \FF_p\pseries{t^{-1}}^\times$ and $g ^ {-n} \equiv 1 \pmod{t^{-1}}$. Therefore,
+  \[y=\frac{z}{\pi^n}=zt^{-nd}g^{-n}=(c_1t^{-1}+c_2t^{-2}+\dots+c_{nd}t^{-nd})
+    (1+O(t^{-1}))\equiv c_1t^{-1}\pmod{t^{-2}}.\]
+
+  By the definition of $\psi_\infty (y) = e ^ {-2 \pi i c_1 / p}$ in part~(b) of
+  \cref{ex:ch7-3}, then we have that $\psi_v(y) \psi_\infty (y) = 1$.
 \end{solution}
