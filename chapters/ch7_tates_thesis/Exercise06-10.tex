@@ -28,6 +28,37 @@
   $\psi_{K_0} (x) = \psi_\infty (1 / t) = e ^ {2 \pi i/ p}$.
   Then $\psi_{K_0}$ is nontrivial.
 
+  Claim: for every $x \in K_0$, $x$ can be written as
+  \[x = f + \sum_{i = 0}^{r} \frac{z_i}{\pi_i ^ {n_i}},\]
+  where $f \in \FF_p[t]$ and $\deg z_i < n_i d_i$, $d_i = \deg \pi_i$.
+
+  \textit{Proof of claim:} let $x = a / b$, where
+  $b = \prod_{i = 1}^{r} \pi_i ^ {n_i}$, where $\pi_i$ are different monic
+  irreducible polynomial. Let $b_i = b / \pi_i^{n_i}$ and
+  these are coprime. Since $\FF_p[t]$ is principal ideal domain, then
+  there exist ${u_i}_{i = 1}^r$ such that $\sum_{i=1}^{r} u_i b_i = 1$.
+  Hence $x = \sum_{i =1}^{r} a u_i / \pi_i^{n_i}$. By division algorithm,
+  we have that $a u_i = q_i \pi_i ^ {n_i} + z_i$,
+  where $\deg z_i < n_i \deg \pi_i$.
+
+  Since $\psi_{K_0}$ is a homomorphism, then we only need to check that
+  for $f \in \FF_p[t]$ and $y = z/ \pi ^ n$ satisfy $\psi_{K_0} (f) = 1$ and
+  $\psi_{K_0} (y) = 1$.
+
+  \begin{itemize}
+    \item For $f \in \FF_p[t]$, $f \in \gotho_v$ for all finite place $v$.
+    It follows that $\psi_v(f) = 1$. And at the infinite place $\infty$,
+    $\psi_\infty (f) = 1$, since $a_{-1} = 0$.
+    \item For $y = z / \pi^ n$ with $\deg z < n d$ and let
+    $y \equiv c_1 t ^ {-1} \pmod{t ^ {-2}}$. For $v = v_\pi$,
+    $\psi_v (y) = e^{2\pi i c_1 / p}$. And for any other finite place
+    $u \neq v$, $\psi_u(y) = 1$. For infinite place $\infty$,
+    $\psi_\infty (y) = e^{-2 \pi i c_1 / p}$.
+  \end{itemize}
+
+  In conclusion, $\forall x \in K_0$, $\psi_{K_0} (x) = 1$, i.e. $\psi_{K_0} | _{K_0} = 1$.
+
+  (b)
 
 \end{solution}
 
