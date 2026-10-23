@@ -56,9 +56,35 @@
     $\psi_\infty (y) = e^{-2 \pi i c_1 / p}$.
   \end{itemize}
 
-  In conclusion, $\forall x \in K_0$, $\psi_{K_0} (x) = 1$, i.e. $\psi_{K_0} | _{K_0} = 1$.
+  In conclusion, $\forall x \in K_0$, $\psi_{K_0} (x) = 1$, i.e.
+  $\psi_{K_0} | _{K_0} = 1$.
 
-  (b)
+  (b) Recall that adelic tract is defined as follows:
+  \[\tr (x)_v = \sum_{w \mid v} \tr_{K_w / K_{0, v}} (x_w). \]
+
+  We define $\psi_K = \psi_{K_0} \circ \tr$ or equivalently
+  $\psi_K(x) = \prod_{w} \psi_w (x_w)$, where
+  $\psi_w = \psi_v \circ \tr_{K_w/ K_{0, v}}$. Due to separability
+  of $K/ K_0$, then $\tr_{K/ K_0}$ is nontrivial and
+  hence $\psi_K$ is non-trivial.
+
+  Claim: for any $a \in K$ and every place $v$, then
+  $\tr_{K/ K_0} (a) = \sum_{w \mid v} \tr_{K_w/ K_{0, v}} (a)$
+  This means that adelic trace restricts to $K$ is global trace,
+  that is $\tr |_K = \tr_{K/K_0}$.
+
+  \textit{Proof of claim:} since $K/ K_0$ is separable,
+  $K \otimes_{K_0} K_{0, v} \cong \prod_{w \mid v} K_w$.
+  The matrix of multiplication by $a$ map in $K$ related to
+  $K_0$-basis $\{e_i\}$ is the same as in $K \otimes K_{0, v}$
+  as $K_{0, v}$-basis $\{e_i \otimes 1\}$.
+  Then
+
+  \[\tr_{K/K_0} (a) = \tr_{(K \otimes K_{0, v})/ K_{0, v}} (a \otimes 1) =
+    \sum_{w} \tr_{K_w/ K_{0, v}} (a).  \]
+
+  Then $\psi_K(a) = \psi_{K_0} (\tr_{K/ K_0} a)$. It follows that
+  $\tr_{K/K_0} (a) \in K_0$. By $(a)$, $\psi_K (a) = 1$.
 
 \end{solution}
 
@@ -101,21 +127,58 @@
         \varepsilon(\chi, \psi_a, \dd x)
         = \chi(a)\abs{a}^{-1} \varepsilon(\chi, \psi, \dd x).
       \]
-    % Note: replacing \psi by \psi_a with a = \pi^k turns the conductor P^m
-    % into P^{m-k}; comparing with (b) shows that the exponent below must be
-    % n - m (Tate's a(\chi) + n(\psi) with n(\psi) = -m), not m + n.
+    % Changed from the book: the book has \nu(\pi^{m+n}) and refers to
+    % Eq. (7.6) in the hint.
+    % - Exponent: replacing \psi by \psi_a with a = \pi^k turns the conductor
+    %   P^m into P^{m-k}; comparing with (b) shows that the exponent must be
+    %   n - m (Tate's a(\chi) + n(\psi) with n(\psi) = -m), not m + n.
+    % - Hint: the book refers to Eq. (7.6), but the relevant formula is (7.5).
     \item Let $F$ be non-Archimedean with unique prime ideal $P$, and let
       $P^n$ and $P^m$ be the conductors of $\chi$ and $\psi$, respectively.
       Then show for every unramified character $\nu$ of $F^\times$ that
       \[
         \varepsilon(\chi\nu, \psi, \dd x)
-        = \nu(\pi^{m+n}) \varepsilon(\chi, \psi, \dd x)
+        = \nu(\pi^{n-m}) \varepsilon(\chi, \psi, \dd x)
       \]
       where $\pi$ is a uniformizing parameter for $\gotho_F$. Note that the
       first factor on the right is well-defined because $\nu$ is unramified.
-      [\emph{Hint}: Use the explicit formula given in \RV{Eq.~(7.6)}.]
+      [\emph{Hint}: Use the explicit formula given in \RV{Eq.~(7.5)}.]
+      (\emph{Note}: This differs from the book, which has $\nu(\pi^{m+n})$,
+      inconsistent with part~(b). Also, the book's hint refers to
+      \RV{Eq.~(7.6)}, but the relevant formula is \RV{Eq.~(7.5)}.)
   \end{enumerate}
 \end{exercise}
+
+\begin{solution}
+  Recall that
+  \[\varepsilon(\chi, \psi, \dd x) =
+    \frac{L(\chi)Z(\dual{f}, \chi^\vee )}{L (\chi ^ \vee) Z(f, \chi)}, \]
+  where $\chi^\vee = \chi^{-1}|\cdot|$, $Z(f, \chi) = \int_{F^\times} f(x) \chi(x) \dd x$.
+
+  (a) Let $\dual{f_t}$ be the fourier transform of $f$ with respect to the measure $t \dd x$.
+  Then \[\dual{f_t} (x) = \int_{F} f(y) \psi(x y) t \dd x = t \dual{f} (x). \]
+
+  It follows that $Z(\dual{f_t}, \chi^\vee) = t Z(\dual{f}, \chi^\vee)$. Since $L(\chi)$,
+  $L(\chi^\vee)$ is independent on measure, then
+  \[\varepsilon (\chi, \psi, t \dd x) =
+  \frac{L(\chi)Z(\dual{f_t}, \chi^\vee )}{L (\chi ^ \vee) Z(f, \chi)} =
+  \frac{L(\chi)t \cdot Z(\dual{f}, \chi^\vee)}{L(\chi^\vee) Z(f, \chi)} =
+  t \cdot \varepsilon(\chi, \psi, \dd x).  \]
+
+  (b) Let $\dual{f_a}$ be the fourier transform of $f$ with respect to the character $\psi_a$.
+  Note that
+  \[\dual{f_a} (x) = \int_{F} f(y) \psi_a(x y) \dd y = \int_{F} f(y) \psi(a x y) \dd y
+  = \dual{f} (a x).  \]
+  Then
+  \[Z(\dual{f_a}, \chi^\vee) = \int_{F^\times} \dual{f_a} (x) \chi^\vee (x) \dd x =
+  \chi^\vee(a) ^{-1} \int_{F^\times} \dual{f} (a x)\chi^\vee(a x) \dd ax =
+  \chi^\vee (a)^{-1} Z(\dual{f}, \chi^\vee). \]
+  It follows that
+  \[\varepsilon (\chi, \psi_a, \dd x) = \chi^\vee(a)^{-1} \varepsilon(\chi, \psi, \dd x) =
+  \chi(a) |a|^{-1} \varepsilon(\chi, \psi, \dd x).  \]
+
+  (c)
+\end{solution}
 
 \begin{exercise}[9]
   \label{ex:ch7-9}

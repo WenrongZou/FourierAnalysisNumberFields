@@ -48,22 +48,22 @@ So $\psi_a$ is nontrivial.
 
 (b) Recall that $\dual{F}$ has the compact-open topology. A basis of neighborhoods of a
 character $\psi_0$ is given by the sets
-\[W(\psi_0, C, \epsilon) = \{\psi \in \dual{F}:  |\psi(x) - \psi_0(x)| < \epsilon, \forall x \in C \}. \]
-where $C\subset F$ is a compact set and $\epsilon > 0$.
+\[W(\psi_0, C, \varepsilon) = \{\psi \in \dual{F}:  |\psi(x) - \psi_0(x)| < \varepsilon, \forall x \in C \}. \]
+where $C\subset F$ is a compact set and $\varepsilon > 0$.
 
 First, reduce to continuity at $0$. Note that $\psi_{a + b} (x)= \psi_a (x) \cdot \psi_b(x)$.
 Then we have that
 \[|\psi_a(x)- \psi_b(x)| = |\psi_b|\cdot |\psi_{a-b}(x) - 1 | = |\psi_{a-b}(x) - 1|. \]
-So it suffices to show that for each compact $C$ and $\epsilon > 0$, there is a $\delta >0$, such
+So it suffices to show that for each compact $C$ and $\varepsilon > 0$, there is a $\delta >0$, such
 that
-% \[|a| < \delta \implies |\psi_a(x) - 1| < \epsilon. \]
-$\forall |a| < \delta$, $|\psi_a(x) - 1| < \epsilon$.
+% \[|a| < \delta \implies |\psi_a(x) - 1| < \varepsilon. \]
+$\forall |a| < \delta$, $|\psi_a(x) - 1| < \varepsilon$.
 
-Given an $\epsilon > 0$. Since $\psi$ is continuous at $0$ and $\psi(0) = 1$, then there is an $r > 0$, such that
-$\forall |x| < r$, $|\psi(x) - 1|< \epsilon$. Since $C$ is compact, then $M = \max_{x \in C} \{ |x|\} < \infty$.
+Given an $\varepsilon > 0$. Since $\psi$ is continuous at $0$ and $\psi(0) = 1$, then there is an $r > 0$, such that
+$\forall |x| < r$, $|\psi(x) - 1|< \varepsilon$. Since $C$ is compact, then $M = \max_{x \in C} \{ |x|\} < \infty$.
 Choose $\delta = r / M$, then $\forall |a| < \delta$ and $\forall x \in C$, $|a x| < r$.
 It follows that
-\[|\psi_a(x) - 1| = |\psi(ax) - 1| < \epsilon. \]
+\[|\psi_a(x) - 1| = |\psi(ax) - 1| < \varepsilon. \]
 
 Injectivity is followed from (a).
 
@@ -83,19 +83,19 @@ Then we have that $\chi = (\psi \mapsto \psi(b_0))$ for some $b_0 \in F$. Since
 $\chi$ is trivial on $H$ then $\forall a \in F, \psi_a(b_0) = 1$. It follows that
 $b_0 = 0$, which contradicts to $\chi$ is a nontrivial character of $\dual{F}$.
 
-(d) First, reduce to continuity at $0 \in F$. Note that $\psi_a \in \psi_{a_0} W(1, C, \epsilon)$ if and only if
-$\psi_{a - a_0} \in W(1, C, \epsilon)$. Then it suffices to show that $\forall r > 0$, there are a
-compact $C$ and $\epsilon > 0$, such that
-\[\psi_a\in W(1, C, \epsilon) \implies |a|< r. \]
+(d) First, reduce to continuity at $0 \in F$. Note that $\psi_a \in \psi_{a_0} W(1, C, \varepsilon)$ if and only if
+$\psi_{a - a_0} \in W(1, C, \varepsilon)$. Then it suffices to show that $\forall r > 0$, there are a
+compact $C$ and $\varepsilon > 0$, such that
+\[\psi_a\in W(1, C, \varepsilon) \implies |a|< r. \]
 
 Since $\psi$ is nontrivial, pick $y \in F$ such that $\psi(y) \neq 1$, and set
-$\epsilon = |\psi(y) - 1| > 0$. Now choose $C \coloneqq \{x \in F: |x| \le |y|/r \}$.
+$\varepsilon = |\psi(y) - 1| > 0$. Now choose $C \coloneqq \{x \in F: |x| \le |y|/r \}$.
 Since $C$ is closed, then $C$ is compact.
 
-Now suppose that $\psi_a \in W(1, C, \epsilon)$ but $|a| \ge r$. Then $a \neq 0$ and
+Now suppose that $\psi_a \in W(1, C, \varepsilon)$ but $|a| \ge r$. Then $a \neq 0$ and
 $x \coloneqq a^{-1} y$ satisfies $|x| = |y|/ |a| \le |y| / r$, so $x \in C$. But
-\[|\psi_a(x) - 1| = |\psi(y) - 1| = \epsilon, \]
-which contradicts to $\psi_a\in W(1, C, \epsilon)$. Therefore, $|a| < r$.
+\[|\psi_a(x) - 1| = |\psi(y) - 1| = \varepsilon, \]
+which contradicts to $\psi_a\in W(1, C, \varepsilon)$. Therefore, $|a| < r$.
 
 (e) Given a Cauchy sequence $\{\psi_{a_n}\}_n$ in $\alpha_\psi(F)$. Then we have that
 for every neighborhood $W$ of $1$ there is an $N$ such that $\psi_{a_n - a_m} \in W$
@@ -259,11 +259,12 @@ Since $F/ F_0$ is separable extension, then $\tr_{F/F_0}$ is surjective, then $\
 
 (e) Since the characteristic of $F$ is $0$, then we assume that $F_0= \QQ_p$.
 Recall that the conductor $\psi_0$ is $\ZZ_p$ and
-\[\calD_F ^{-1} = {x \in F: \tr(x \gotho) \subseteq \ZZ_p}.\]
+\[\calD_F ^{-1} = \{x \in F: \tr(x \gotho) \subseteq \ZZ_p\}.\]
 
 Claim: For any fractional ideal $\gotha$, $\psi|_{\gotha} = 1$ if and only if $\gotha \subseteq \calD_F^{-1}$.
 
-\textit{Proof of claim:} Note that
+\begin{proof}[Proof of claim]
+Note that
 \[\psi|_\gotha = 1 \iff \psi_0|_{\tr(\gotha)} = 1 \iff \tr(\gotha) \subseteq \ZZ_p. \]
 It remains to show that $\tr(\gotha) \subseteq \ZZ_p \iff \gotha \subseteq \calD_F^{-1}$.
 
@@ -272,9 +273,57 @@ we have that $\tr(a) \in \ZZ_p$.
 
 ($\implies$): For each $a \in \gotha$, $a \gotho \subseteq \gotha$. It follows that
 $\tr(a\gotho) \subseteq \ZZ_p$, i.e. $a\in \calD_F^{-1}$.
+\end{proof}
 
-\color{red}{TODO: Fourier transform.}
+Next, we will show that
+\[\dual{\bbone_{\gotho_F}} = N(\calD_F)^{-1/2} \bbone_{\calD_F^{-1}}. \]
 
+Recall that for $f \in S(F)$, $\dual{f}(x) = \int_{F} f(y) \psi(x y) \dd y$. And we have
+the follow lemma:
+
+\begin{lemma}
+  Let $H$ be a compact open subgroup of $F$, $\mu$ a Haar measure on $F$, and $\chi$ a
+  character of $H$. Then
+  \[\int_{H} \chi \dd\mu =
+    \begin{cases}
+      \mu(H), & \text{if } \chi = 1, \\
+      0, & \text{otherwise}.
+    \end{cases}
+  \]
+\end{lemma}
+
+\begin{proof}[Sketch of proof]
+If $\chi$ is nontrivial, then there is a $y \in H$ such that
+$\chi(y) \neq 1$, then $\int_{H} \chi (x) \dd\mu(x) =
+\int_{H} \chi(xy) \dd \mu(x y) = \chi(y)\int_{H} \chi (x) \dd\mu(x) $.
+Hence, $\int_{H} \chi (x) \dd\mu(x) = 0$.
+\end{proof}
+
+Let $\dd x$ be the Haar measure such that $\int_{\gotho} \dd x = 1$.
+Note that $\psi(x y)$ is trivial on $\gotho$ if and only if $x \in \calD_F^{-1}$.
+\begin{equation}
+  \dual{\bbone_{\gotho_F}} (x) = \int_{\gotho} \psi(x y) \dd y
+= \int_{\gotho} \psi_0(\tr(xy)) \dd y = \bbone_{\calD_F^{-1}}. \label{eq: ex3}
+\end{equation}
+% \[\dual{\bbone_{\gotho_F}} (x) = \int_{\gotho} \psi(x y) \dd y
+% = \int_{\gotho} \psi_0(\tr(xy)) \dd y = \bbone_{\calD_F^{-1}}. \label{eq: ex3} \]
+
+Assume that $c' \dd x$ be the dual measure of $\dd x$ under the transport $\alpha$.
+Fourier inversion formula should holds for $f = \bbone_{\gotho}$, i.e.
+$\dual{\dual{\bbone_{\gotho}}} = \bbone_{\gotho}$.
+Note that
+\[\dual{\dual{\bbone_{\gotho}}}(x) = \int_{F} \bbone_{\calD_F^{-1}}(y) \psi(-xy) c' \dd y =
+c' \int_{\calD_{F} ^ {-1}} \psi(-xy) \dd y = c' \vol(\calD_F^{-1}, \dd x) \bbone_{\gotho}.  \]
+
+And note that $\vol (\calD_F^{-1}, \dd x) = N(\calD_F)$. It follows that $c' = N(\calD_F)^{-1}$.
+
+Now assume that for the self-dual has the form $t \dd x$, then the dual Haar measure,
+transported by $\alpha$ is $t^{-1} c' \dd x = t^{-1} N(\calD_F) ^{-1} \dd x$. Then we have the
+following equality:
+\[t \dd x = t^{-1} N(\calD_F)^{-1} \dd x.\]
+
+It follows that $t = N(\calD_F) ^{-1/2}$. Normalize the equation \eqref{eq: ex3},
+we complete this exercise.
 \end{solution}
 
 \begin{exercise}[4]
