@@ -174,8 +174,8 @@
   \[\dual{f_a} (x) = \int_{F} f(y) \psi_a(x y) \dd y = \int_{F} f(y) \psi(a x y) \dd y
   = \dual{f} (a x).  \]
   Then
-  \[Z(\dual{f_a}, \chi^\vee) = \int_{F^\times} \dual{f_a} (x) \chi^\vee (x) \dd x =
-  \chi^\vee(a) ^{-1} \int_{F^\times} \dual{f} (a x)\chi^\vee(a x) \dd ax =
+  \[Z(\dual{f_a}, \chi^\vee) = \int_{F^\times} \dual{f_a} (x) \chi^\vee (x) \dd^\times x =
+  \chi^\vee(a) ^{-1} \int_{F^\times} \dual{f} (a x)\chi^\vee(a x) \dd^\times ax =
   \chi^\vee (a)^{-1} Z(\dual{f}, \chi^\vee). \]
   It follows that
   \[\varepsilon (\chi, \psi_a, \dd x) = \chi^\vee(a)^{-1} \varepsilon(\chi, \psi, \dd x) =
@@ -216,6 +216,120 @@
       \RV{Eq.~(7.6)} to deduce (once again) that $\abs{W(\omega)} = 1$.
   \end{enumerate}
 \end{exercise}
+
+\begin{solution}
+  (a) Recall that we have the functional equation:
+  \[\varepsilon(\chi, \psi, \dd x) = \frac{L(\chi) Z(\dual{f}, \chi^\vee)}{L(\chi^\vee) Z(f, \chi)}.  \]
+
+  And note that
+  \[(\omega \abs{\cdot} ^{1/2})^\vee = \overline{\omega} \abs{\cdot}^{1/2}.  \]
+
+  Then we have that
+
+  \begin{equation}
+  W(\omega) = \frac{L(\omega \abs{\cdot} ^{1/2}) Z(\dual{f},
+    \overline{\omega} \abs{\cdot}^{1/2})}{L(\overline{\omega} \abs{\cdot}^{1/2}) Z(f, \chi)}.
+  \label{eq: W_omega}
+  \end{equation}
+
+  And apply $f = \dual{f}$ and $\chi = \overline{\omega}\abs{\cdot}^{1/2}$ at the functional equation, i.e.
+
+  \begin{equation}
+  W(\overline{\omega}) = \frac{L(\overline{\omega}\abs{\cdot}^{1/2}) Z(\dual{\dual{f}},
+  \omega \abs{\cdot}^{1/2})}{L(\omega \abs{\cdot}^{1/2}) Z(\dual{f}, \overline{\omega} \abs{\cdot}^{1/2})}.
+  \label{eq: W_bar_omega}
+  \end{equation}
+
+  Since $\dual{\dual{f}} (x) = f(-x)$, then for any $\chi$,
+  \[Z(\dual{\dual{f}}, \chi) = \int_{F^\times} f(-x) \chi(x) \dd^\times x =
+  \int_{F^\times} f(-x) \chi(-x) \chi(-1) \dd^\times (-x) = \chi(-1) Z(f, \chi).  \]
+
+  Multiplying equation \eqref{eq: W_omega} and equation \eqref{eq: W_bar_omega}, we have that
+
+  \begin{equation}
+    W(\omega) W(\overline{\omega}) = \frac{Z(\dual{\dual{f}}, \omega \abs{\cdot}^{1/2})}{Z(f, \omega \abs{\cdot}^{1/2})} =
+  \omega(-1).
+  \label{eq:Ww_Ww}
+  \end{equation}
+
+  \begin{lemma}
+    For any $\chi$ and $\psi$, we have that
+    \[\overline{\varepsilon (\chi, \psi, \dd x)} = \varepsilon(\overline{\chi}, \overline{\psi}, \dd x).\]
+  \end{lemma}
+
+  \begin{proof}[Proof of lemma]
+    TODO.
+  \end{proof}
+
+  Note that $\psi$ is a unitary character, then $\overline{\psi} = \psi_{-1}$.
+  By exercise \ref{ex:ch7-8} (b), note that for any $\chi$,
+  \[\varepsilon(\chi, \overline{\psi}, \dd x) = \varepsilon(\chi, \psi_{-1}, \dd x) =
+  \chi(-1) \varepsilon(\chi, \psi, \dd x).  \]
+
+  Then
+  \[\overline{W({\omega})} = \overline{\varepsilon(\omega \abs{\cdot}^{1/2}, \psi, \dd x)} =
+  \varepsilon(\overline{\omega}\abs{\cdot}^{1/2}, \overline{\psi},\dd x) =
+  \omega(-1) \varepsilon(\overline{\omega} \abs{\cdot}^{1/2}, \psi, \dd x) =
+  \omega(-1) W(\overline{\omega}). \]
+
+  And by equation
+  \eqref{eq:Ww_Ww}, we have that
+
+  \[\abs{W(\omega)}^2 = W(\omega) \overline{W(\omega)} = W(\omega) W(-1) W(\overline{\omega}) =
+  W(-1) W(-1) = 1.\]
+
+  (b) It follows from the calculation in section 7.1.
+
+  (c) Denote that $\varphi (x) = \psi(\pi ^{-d-n} x)$, then
+  $G = \sum_{x \in U/ U_n} \overline{\omega}(x) \varphi(x)$. Note that
+
+  \[\abs{G}^2 = G \overline{G} = \sum_{x, y \in U/ U_n} \overline{\omega}(xy^{-1})\varphi(x - y)
+  = \sum_{t \in U/ U_n} \overline{\omega}(t) H(t),\]
+
+  where $t = x y^{-1}$ and $H(t) = \sum_{y \in U/ U_n} \varphi(y(t - 1))$.
+
+  Note that $U/ U_n \cong (\gotho_F/ P^n) ^\times$. Now let $a = t - 1$, then
+  $H(t) = \sum_{y \in U/ U_n} \varphi(ya)$. Since the conductor of $\psi$ is $\calD_F^{-1}$, then
+  $\varphi$ is trivial on $P^n$, i.e. $\varphi$ is a character over $\gotho_F/ P^n$.
+  And $\varphi (y a)$ only depends on $y, a \mod{P^n}$. Then we could rephrase the sum
+  $H(t)$ as follow:
+
+  \[H(t) = \sum_{y \in \gotho_F/ P^n} \varphi(ya) - \sum_{y \in P/ P ^ n} \varphi(ya).\]
+
+  By the fact that if the character $\varphi_a = (y \mapsto \varphi (ya))$ is trivial,
+  then
+  \[\sum_{y \in \gotho_F/ P^n} \varphi(ya)= \# ({\gotho_F/ P^n}) = q ^ n, \]
+
+  otherwise the sum is zero.
+
+  Note that
+  \[\varphi_a |_{\gotho_F} = 1 \iff v(a) \ge n \iff a \in P^n \iff t \in U_n, \]
+
+  and
+
+  \[\varphi_a |_{P} = 1 \iff v(a) + 1 \ge n \iff a \in P ^{n-1} \iff t \in U_{n - 1}.  \]
+
+  Then $H(t) = q ^ n \bbone_{U_n} - q ^ {n-1} \bbone_{U_{n-1}}$. It follows that
+
+  \[\abs{G}^2 = \sum_{t \in U/ U_n} \overline{\omega}(t) H(t) = q ^ n \overline{\omega} (1) -
+    q^{n-1}\sum_{t \in U_{n-1}/ U_n} \overline{w}(t).  \]
+
+  Since $\omega$ is of conductor $\pi^n \gotho_F$, then $\omega$ is nontrivial on $U_{n-1}$.
+  It follows that
+  \[\sum_{t \in U_{n-1}/ U_n} \overline{\omega}(t) = 0. \]
+
+  In conclusion, $\abs{G}^2 = q ^ n \overline{\omega}(1) = q ^ n$.
+
+  Recall that equation $(7.6)$ is
+  \[W(\omega) = q ^ {-n/2} \sum_{x \in U/ U_n} \overline{\omega}(x) \psi(x \pi^{-d-n}) = q ^ {-n/2} G.\]
+
+  We conclude that
+
+  \[\abs{W(\omega)}^2 = W(\omega) \overline{W(\omega)} = q ^ {-n/2} G \cdot q ^{-n/2} \overline{G} =
+  q ^{-n} \cdot q ^ n = 1. \]
+
+
+\end{solution}
 
 \begin{exercise}[10]
   \label{ex:ch7-10}
