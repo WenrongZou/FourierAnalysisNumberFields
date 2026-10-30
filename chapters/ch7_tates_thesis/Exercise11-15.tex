@@ -42,6 +42,34 @@
   \end{enumerate}
 \end{exercise}
 
+\begin{proof}
+  \begin{theorem}
+    Let $\chi$ be a unitary idele class character. Then $L(s, \chi)$ admits the following
+    function equation,
+    \begin{equation}
+      L(1 -s, \chi^{-1}) = \varepsilon(s, \chi) L(s, \chi),
+      \label{eq:fun_eq_L}
+    \end{equation}
+    where
+    \[\varepsilon(s, \chi) = \prod_{v} \varepsilon(\chi_v \abs{\cdot}^s) \in \CC ^\times.  \]
+  \end{theorem}
+  \begin{proof}[Proof of Theorem]
+    TODO. (using Theorem 7-19).
+  \end{proof}
+
+  (a) By equation \eqref{eq:fun_eq_L}, we have that
+  \[L(1-s, \chi^{-1}) = \varepsilon(s, \chi) L(s, \chi), \ L(1-s, \chi)
+    = \varepsilon (s, \chi^{-1}) L(s, \chi^{-1}).   \]
+  Take $s = 1/ 2$ and multiply these two equations, we have that
+
+  \[L(1/2, \chi^{-1}) L(1/2, \chi) = W(\chi) W(\chi^{-1}) L(1/2, \chi) L(1/2, \chi^{-1}). \]
+
+  It follows that $W(\chi)W(\chi^{-1}) = 1$. If in particular, $\chi$ is unitary, it follows that
+  $\chi^{-1} = \overline{\chi}$. Then
+  \[W(\chi) W(\chi^{-1}) = W(\chi) W(\overline{\chi}) =  \]
+
+\end{proof}
+
 \begin{exercise}[12]
   \label{ex:ch7-12}
   We consider here the Fourier transforms of Schwartz--Bruhat functions.
