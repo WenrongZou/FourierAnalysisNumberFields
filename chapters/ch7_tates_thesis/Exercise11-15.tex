@@ -45,9 +45,9 @@
 \begin{proof}
   \begin{theorem}
     Let $\chi$ be a unitary idele class character. Then $L(s, \chi)$ admits the following
-    function equation,
+    functional equation,
     \begin{equation}
-      L(1 -s, \chi^{-1}) = \varepsilon(s, \chi) L(s, \chi),
+      L(s, \chi) = \varepsilon(s, \chi) L(1 -s, \chi^{-1}),
       \label{eq:fun_eq_L}
     \end{equation}
     where
@@ -57,16 +57,50 @@
     TODO. (using Theorem 7-19).
   \end{proof}
 
-  (a) By equation \eqref{eq:fun_eq_L}, we have that
-  \[L(1-s, \chi^{-1}) = \varepsilon(s, \chi) L(s, \chi), \ L(1-s, \chi)
-    = \varepsilon (s, \chi^{-1}) L(s, \chi^{-1}).   \]
-  Take $s = 1/ 2$ and multiply these two equations, we have that
+  \begin{lemma}[Generalization of Exercise \ref{ex:ch7-9}]
+    Let $F$ be a local field with standard character $\psi$ and self-dual measure $\dd x$.
+    Let $\chi$ be a quasi-character on $F^\times$, not necessarily unitary. Put
+    $W(\chi) = \varepsilon(\chi \abs{\cdot}^{1/2}, \psi, \dd x)$.
+    Then we have
+    \[ \varepsilon(\chi\abs{\cdot}^s, \psi, \dd x) \varepsilon(\chi^{-1}\abs{\cdot}^{1-s}, \psi, \dd x) = \chi(-1), \ \forall s \in \CC.  \]
+    In particular,
+    \[W(\chi) W(\chi^{-1}) = \chi(-1).  \]
+  \end{lemma}
 
-  \[L(1/2, \chi^{-1}) L(1/2, \chi) = W(\chi) W(\chi^{-1}) L(1/2, \chi) L(1/2, \chi^{-1}). \]
+  (a)
+  For almost all $v$, $\chi_v$ is unramified and $\psi_v$ has conductor $\gotho_v$,
+  so $W(\chi_v)=W(\chi_v^{-1})=1$ and $\chi_v(-1)=1$; hence all products below are finite.
+  By the lemma above, we have that
+
+  \[W(\chi) W(\chi^{-1}) = \prod_{v} W(\chi_v) \prod_{v} W(\chi_v^{-1}) =
+  \prod_{v} W(\chi_v)W(\chi_v^{-1}) = \prod_{v} \chi_v(-1) = \chi(-1) = 1.  \]
+
+  % By equation \eqref{eq:fun_eq_L}, we have that
+  % \[L(1-s, \chi^{-1}) = \varepsilon(s, \chi) L(s, \chi), \ L(1-s, \chi)
+  %   = \varepsilon (s, \chi^{-1}) L(s, \chi^{-1}).   \]
+  % Take $s = 1/ 2$ and multiply these two equations, we have that
+
+  % \[L(1/2, \chi^{-1}) L(1/2, \chi) = W(\chi) W(\chi^{-1}) L(1/2, \chi) L(1/2, \chi^{-1}). \]
 
   It follows that $W(\chi)W(\chi^{-1}) = 1$. If in particular, $\chi$ is unitary, it follows that
   $\chi^{-1} = \overline{\chi}$. Then
-  \[W(\chi) W(\chi^{-1}) = W(\chi) W(\overline{\chi}) =  \]
+  \[W(\chi) W(\chi^{-1}) = W(\chi) W(\overline{\chi}) = W(\chi) \chi(-1) \overline{W(\chi)} =
+  \chi(-1) \abs{W(\chi)}^2 = \abs{W(\chi)}^2.  \]
+
+  The equality $W(\overline{\chi}) = \chi(-1) \overline{W(\chi)}$ is followed from Exercise
+  \ref{ex:ch7-9}.
+  In conclusion, $\abs{W(\chi)} = 1$.
+
+  (b) Since $\chi$ is quadratic, then $\chi^{-1} = \chi$. Then by part (a), $W(\chi) ^ 2 = 1$.
+  It follows that $W(\chi) = \pm 1$. By Exercise 10 part (c), we have that
+
+  \[W(\chi_v) = \chi_v (\pi)^ {d_v}, \text{if } \pi^d_v \gotho_v = \calD_{K_v}.  \]
+
+  It follows that
+
+  \[W(\chi) = \prod_{v} W(\chi_v) = \prod_{v< \infty} \chi_v (\pi) ^{d_v}
+  =  \widetilde{\chi} ( \prod_{v < \infty} \gothp_v ^ {d_v}) =
+   \widetilde{\chi} (\calD_K). \]
 
 \end{proof}
 
