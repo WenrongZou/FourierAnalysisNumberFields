@@ -25,7 +25,7 @@
       $\ker(\chi)$ of $C_K$ by class field theory (\RV{Theorem 6-6}). Note
       that $\zeta_E(s) = \zeta_K(s) L(s, \chi)$ and deduce the formula
       \[
-        \varepsilon(s, \chi) = \bigl(\abs{d_K}/\abs{d_E}^{1/2}\bigr)^{1-2s}
+        \varepsilon(s, \chi) = \bigl(\abs{d_K}^{1/2} /\abs{d_E}^{1/2}\bigr)^{1-2s}
       \]
       where $d_K$ and $d_E$ are the discriminants of $K$ and $E$,
       respectively.
@@ -52,6 +52,7 @@
     \end{equation}
     where
     \[\varepsilon(s, \chi) = \prod_{v} \varepsilon(\chi_v \abs{\cdot}^s) \in \CC ^\times.  \]
+    \label{thm: global_fun_eq}
   \end{theorem}
   \begin{proof}[Proof of Theorem]
     TODO. (using Theorem 7-19).
@@ -102,6 +103,53 @@
   =  \widetilde{\chi} ( \prod_{v < \infty} \gothp_v ^ {d_v}) =
    \widetilde{\chi} (\calD_K). \]
 
+   (c) Note that $\zeta_E (s) = \zeta_K(s) L(s, \chi)$.
+   And by Theorem \ref{thm: global_fun_eq}, we have that
+   \begin{align}
+    L_K(s, \chi) &= \varepsilon(s, \chi) L_K(1-s, \chi^{-1}), \\
+    L_E(s, \chi) &= \varepsilon(s, \chi) L_E(1-s, \chi^{-1}).
+   \end{align}
+
+   Take $\chi $ to be trivial character, and note that $\varepsilon_E(s, 1) = \abs{d_E}^{1/2 -s}$,
+   then we have that
+   \begin{align}
+    \zeta_K(s) & = \abs{d_K}^{1/2-s} \zeta_K(1-s), \\
+    \zeta_E(s) & = \abs{d_E}^{1/2-s} \zeta_E(1-s).
+   \end{align}
+
+   Note that
+   \begin{equation}
+    \zeta_E(s) = \abs{d_E}^{1/2-s} \zeta_E(1-s) = \abs{d_E}^{1/2-s} \zeta_K(1-s) L(1-s, \chi) =
+    \left(\frac{\abs{d_E}}{\abs{d_K}}\right)^{1/2-s} \zeta_K(s) L(1-s, \chi).
+    \label{eq: ex11_c}
+   \end{equation}
+
+   Combining equation \eqref{eq: ex11_c} and $\zeta_E(s)= \zeta_K(s) L(s, \chi)$, it follows that
+   \[\zeta_K(s) L(s, \chi) = \left(\frac{\abs{d_E}}{\abs{d_K}}\right)^{1/2-s} \zeta_K(s) L(1-s, \chi). \]
+
+   In conclusion,
+   \[ \varepsilon(s, \chi) = \bigl(\abs{d_K} /\abs{d_E}\bigr)^{1/2-s}. \]
+
+   (d)
+   \begin{lemma}
+    Let $G$ be a finite abelian group, an element $a$ lies in $G^2$ if and only if $\phi(a)=1$
+    for every character $\phi$ with $\phi^2=1$.
+   \end{lemma}
+
+   \begin{proof}[Proof of lemma]
+    We have $\phi^2=1$ exactly when $\phi$ is trivial on $G^2$. So these $\phi$ are
+    precisely the characters of $G/G^2$. Characters of a finite abelian group separate points,
+    so if all of them kill the image of $a$, then $a\in G^2$.
+   \end{proof}
+
+   By part (b) of this exercise, for any quadratic character $\widetilde{\chi}$ of $\Cl_K$, we have
+   that $\widetilde{\chi}(\calD_K) = W(\chi)$. And by part (c) of this exercise,
+   we have that for every quadratic character $\chi$, we have that
+   \[ W(\chi) = \varepsilon (1/2, \chi) = \bigl(\abs{d_K} /\abs{d_E}\bigr)^{1/2-1/2} = 1. \]
+
+   It follows that for any quadratic character $\widetilde{\chi}(\calD_K)$ of $\Cl_K$,
+   $\widetilde{\chi}(\calD_K) = 1$. According to the lemma above, the ideal class of $\calD_K$ is a
+  square in the class group $\Cl_K$.
 \end{proof}
 
 \begin{exercise}[12]
@@ -125,6 +173,24 @@
       $L^2(\AAA_K) \to L^2(\AAA_K)$.
   \end{enumerate}
 \end{exercise}
+
+\begin{proof}
+(a) For $F$ archimedean, this is a well-known fact in classical Fourier analysis. For $F$
+non-archimedean, it suffices enough to prove it for characteristic functions of the basic
+compact sets $a + P^n$, where $P$ is the unique prime associated with $F$.
+
+Now we need to calculate $\dual{\bbone_{a + P^n}}$. Note that
+
+\[\dual{\bbone_{a + P^n}} (x) = \int_{a + P^n} \psi(xy) \dd y =
+\psi(a x) \int_{P^n} \psi(x y) \dd y = \psi(a x) \vol(P^n) \bbone_{(P^n) ^ \bot}, \]
+where $(P^n)^\bot = \{y \in F : \psi(x y) = 1, \forall x \in P^n \}$.
+Let $P^c$ be the conductor of $\psi$, then $(P^n)^\bot = P^{c - n}$. It follows that
+\[\dual{\bbone_{a+P^n}} \in \calS(F).   \]
+
+(b) First, note that $\dual{\bbone_{\gotho_v}} = \bbone_{\gotho_v}$.
+
+
+\end{proof}
 
 \begin{exercise}[13]
   \label{ex:ch7-13}
