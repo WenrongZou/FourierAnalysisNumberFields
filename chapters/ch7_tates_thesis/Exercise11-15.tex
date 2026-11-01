@@ -187,9 +187,70 @@ where $(P^n)^\bot = \{y \in F : \psi(x y) = 1, \forall x \in P^n \}$.
 Let $P^c$ be the conductor of $\psi$, then $(P^n)^\bot = P^{c - n}$. It follows that
 \[\dual{\bbone_{a+P^n}} \in \calS(F).   \]
 
-(b) First, note that $\dual{\bbone_{\gotho_v}} = \bbone_{\gotho_v}$.
+(b) For almost all finite places $v$, $\psi_v$ has conductor $\gotho_v$ and the self-dual measure
+satisfies $\vol(\gotho_v) = 1$ (cf.\ \cref{ex:ch7-7} (b)). Thus the calculation in (a) gives
+\[\dual{\bbone_{\gotho_v}} = \bbone_{\gotho_v}. \]
 
+Let $S_\infty$ be the set of archimedean places of $K$ (empty if $K$ is a function field), and write
+\[K_\infty = \prod_{v \in S_\infty} K_v, \quad
+\AAA_{K, \mathrm{fin}} = {\prod_{v \notin S_\infty}}' K_v, \]
+so that $\AAA_K = K_\infty \times \AAA_{K, \mathrm{fin}}$. Recall that $\calS(\AAA_K)$ is spanned by
+the functions $f_\infty \otimes f_{\mathrm{fin}}$, where $f_\infty \in \calS(K_\infty)$ and
+$f_{\mathrm{fin}}$ is a locally constant function with compact support on $\AAA_{K, \mathrm{fin}}$.
 
+We claim that $\calS(\AAA_K)$ is spanned by functions of the form
+\[f = f_\infty \otimes \bigotimes_{v \notin S_\infty} f_v, \]
+where $f_\infty \in \calS(K_\infty)$, each $f_v \in \calS(K_v)$, and
+$f_v = \bbone_{\gotho_v}$ for almost all $v$.
+
+\begin{proof}[Proof of claim]
+Let $g$ be locally constant with compact support on $\AAA_{K, \mathrm{fin}}$. The compact open subgroups
+\[U = \prod_{v \notin S_\infty} P_v^{n_v}, \quad n_v \ge 0, \ n_v = 0 \text{ for almost all } v, \]
+form a neighborhood basis of $0$. By local constancy and compactness, $\operatorname{supp}(g)$ is
+covered by finitely many cosets $x_i + U_i$ on which $g$ is constant. Set $U = \bigcap_i U_i$,
+which is again of the displayed form. Each $U_i/U$ is finite, so the union of these cosets is a
+finite disjoint union of $U$-cosets. Since $g$ is constant on each and vanishes outside their union,
+\[g = \sum_{j = 1}^{s} c_j \bbone_{b_j + U}, \quad c_j \in \CC, \ b_j \in \AAA_{K, \mathrm{fin}}. \]
+Finally,
+\[\bbone_{b + U} = \bigotimes_{v \notin S_\infty} \bbone_{b_v + P_v^{n_v}}, \]
+whose local factors equal $\bbone_{\gotho_v}$ for almost all $v$, since $b_v \in \gotho_v$ and
+$n_v = 0$ for almost all $v$. This proves the claim.
+\end{proof}
+
+It therefore suffices to consider $f = f_\infty \otimes \bigotimes_{v \notin S_\infty} f_v$ as above.
+Choose a finite set $S \supseteq S_\infty$ such that, for $v \notin S$, $f_v = \bbone_{\gotho_v}$,
+$\psi_v$ has conductor $\gotho_v$, and $\vol(\gotho_v) = 1$.
+
+For fixed $x \in \AAA_K$, enlarge $S$ to a finite set $T$ such that $x_v \in \gotho_v$ for
+$v \notin T$. The integral defining $\dual{f}(x)$ is supported on
+$\prod_{v \in T} K_v \times \prod_{v \notin T} \gotho_v$, where $\psi_v(x_v y_v) = 1$ for
+$v \notin T$. Since $f$ is integrable and $\dd y = \prod_v \dd y_v$, Fubini's theorem gives
+\[\dual{f}(x) = \dual{f_\infty}(x_\infty)
+\prod_{v \in T \setminus S_\infty} \dual{f_v}(x_v)
+= \dual{f_\infty}(x_\infty) \prod_{v \notin S_\infty} \dual{f_v}(x_v). \]
+Here $\dual{f_\infty}$ uses the product character and self-dual measure on $K_\infty$, and the
+last equality holds because $\dual{f_v}(x_v) = \bbone_{\gotho_v}(x_v) = 1$ for $v \notin T$. Thus
+\[\dual{f} = \dual{f_\infty} \otimes \bigotimes_{v \notin S_\infty} \dual{f_v}. \]
+
+By (a), each $\dual{f_v}$ lies in $\calS(K_v)$, and $\dual{f_v} = \bbone_{\gotho_v}$ for
+$v \notin S$. Also, $\dual{f_\infty} \in \calS(K_\infty)$ by classical Fourier analysis:
+the trace pairing on $K_\infty$ is nondegenerate, so this transform is the usual Fourier transform
+on a finite-dimensional real vector space up to a linear change of variables. Hence
+$\dual{f} \in \calS(\AAA_K)$.
+
+(c) The decomposition in (b) shows that $\calS(\AAA_K) \subseteq L^1(\AAA_K) \cap L^2(\AAA_K)$:
+the archimedean factor is Schwartz, the finite local factors are compactly supported, and almost
+all factors are $\bbone_{\gotho_v}$ with $\vol(\gotho_v) = 1$.
+
+By the Plancherel theorem in \RV{Chapter 3}, the Fourier transform extends to an isometry
+\[\calF \colon L^2(\AAA_K) \longrightarrow L^2(\dual{\AAA_K}). \]
+The isomorphism $y \mapsto \psi_K(y \, \cdot)$ identifies $\dual{\AAA_K}$ with $\AAA_K$ and,
+since $\dd x$ is self-dual, identifies the dual measure with $\dd y$. Under this identification,
+the convention of Chapter 3 gives, for $f \in \calS(\AAA_K)$,
+\[(\calF f)(y) = \int_{\AAA_K} f(x) \overline{\psi_K(xy)} \dd x = \dual{f}(-y). \]
+Since reflection $y \mapsto -y$ preserves Haar measure, the map
+\[f \longmapsto \bigl(y \longmapsto (\calF f)(-y)\bigr)\]
+is an isometry $L^2(\AAA_K) \to L^2(\AAA_K)$ extending $f \mapsto \dual{f}$, as required.
 \end{proof}
 
 \begin{exercise}[13]

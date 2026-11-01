@@ -110,7 +110,31 @@
 \end{exercise}
 
 \begin{solution}
+  (a) Note that for any $t > 0$, the Fourier transform with respect to $t \dd g$ is $t \dual{f}$.
+  Then the Fourier inversion formula holds for the pair $(t \dd g, t^{-1} \dd \dual{g})$, i.e. the
+  dual measure of $t \dd g$ is $t^{-1} \dd \dual{g}$.
 
+  Since $\alpha$ is an isomorphism of topological groups, $\alpha^*(\dd \dual{g})$, defined by
+  $E \mapsto \dd \dual{g}(\alpha(E))$, is a Haar measure on $G$. Then
+  $\alpha^*(\dd \dual{g}) = c \dd g$ for a unique $c > 0$. It follows that the dual measure of
+  $t \dd g$, transported to $G$ via $\alpha$, is $t^{-1} c \dd g$. Hence $t \dd g$ is self-dual
+  if and only if
+  \[t = t^{-1} c \iff t = \sqrt{c}. \]
+  In conclusion, $\mu = \sqrt{c} \dd g$ is the unique self-dual measure.
+
+  (b) Let $P^m = \calD_F^{-1}$ be the conductor of $\psi$ (cf.\ \cref{ex:ch7-3} (e)) and
+  $q = \#(\gotho_F/ P)$, so that $N(\calD_F) = q^{-m}$. For every $n \in \ZZ$, by the lemma in the
+  solution of \cref{ex:ch7-3} and \cref{ex:ch7-2} (b), we have that
+  \[\dual{\bbone_{P^n}}(x) = \int_{P^n} \psi(xy) \dd y = \vol(P^n) \bbone_{P^{m-n}}(x). \]
+  Apply it with $n = 0$ and $n = m$, then
+  \[\dual{\dual{\bbone_{\gotho_F}}} = \vol(\gotho_F) \dual{\bbone_{P^m}}
+  = \vol(\gotho_F) \vol(P^m) \bbone_{\gotho_F}. \]
+  Since $\dd x$ is self-dual, $\dual{\dual{f}}(x) = f(-x)$, so
+  $\dual{\dual{\bbone_{\gotho_F}}} = \bbone_{\gotho_F}$. It follows that
+  $\vol(\gotho_F) \vol(P^m) = 1$. Note that $\vol(P^m) = q^{-m} \vol(\gotho_F) =
+  N(\calD_F) \vol(\gotho_F)$. In conclusion,
+  \[\vol(\gotho_F, \dd x)^2 N(\calD_F) = 1, \ \text{i.e.} \
+  \vol(\gotho_F, \dd x) = N(\calD_F)^{-1/2}. \]
 \end{solution}
 
 \begin{exercise}[8]
