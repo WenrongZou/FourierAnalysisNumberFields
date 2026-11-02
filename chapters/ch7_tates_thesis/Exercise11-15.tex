@@ -353,6 +353,74 @@ is an isometry $L^2(\AAA_K) \to L^2(\AAA_K)$ extending $f \mapsto \dual{f}$, as 
   \end{enumerate}
 \end{exercise}
 
+\begin{proof}
+  (a) For any $z$ with $\abs{z} < 1$, then there is a $\rho$ such that $\abs{z} < \rho < 1$.
+  Note that
+  \[\abs{l_k(z)} \le \sum_{n \ge 1} \abs*{\frac{z^n}{n^k}} \le  \sum_{n\ge 1} \frac{\rho^n}{n^k}
+  \le \sum_{n\ge 1} \rho ^n < \infty.  \]
+
+  If $k > 1$, note that
+
+  \[\abs{l_k(a)} \le \sum_{n \ge 1} \abs*{\frac{z^n}{n^k}} \le \sum_{n\ge 1} \frac{1}{n^k}
+  < \infty. \]
+
+  It follows that this series uniform convergence on the closed disk. Hence $l_k(z)$ extends
+  continuously to every point of $S^1$.
+
+  For $k = 1$, $l_1(z) = -\log (1-z)$. Consequently this expression extends continuously to
+  $S^1\setminus\{1\}$. At $z=1$, the radial limit diverges.
+
+  (b) Write $\zeta = e^{2\pi i / m}$ and $A_b = G(\chi, \zeta^{-b})$. Note that
+  \[\frac{1}{m} \sum_{b=0}^{m-1} A_b \zeta^{bn} = \frac{1}{m} \sum_{b=0}^{m-1}
+  \sum_{c \bmod m} \chi(c) \zeta^{(n-c)b}= \frac{1}{m}\sum_{c \bmod m}
+  \chi(c) \sum_{b=0}^{m-1}\zeta^{(n-c)b} = \chi(n).   \]
+
+  This is because for $c$ such that $n - c \neq 0 \bmod m$, $\sum_{b=0}^{m-1} \zeta^{(n-c)b} = 0$.
+  Then we have that
+
+  \begin{equation}
+    L(k, \chi) = \sum_{n\ge 1} \frac{\frac{1}{m} \sum_{b=0}^{m-1}A_b \zeta^{bn}}{n ^ k} =
+  \frac{1}{m} \sum_{b=0}^{m-1} A_b \sum_{n\ge 1} \frac{\zeta^{bn}}{n^k} =
+  \frac{1}{m} \sum_{b=0}^{m-1} A_b l_k(\zeta^b).
+  \label{eq: ex14b}
+  \end{equation}
+
+  Observe that
+  \[ A_{m-b} l_k(\zeta^{m-b}) = \sum_{c \bmod m} \chi(c) \zeta^{c(m-b)} = \chi(-1) A_b. \]
+
+  It follows that
+
+  \[L(k, \chi) = \frac{1}{m} \sum_{b=0}^{m-1}A_b l_k(\zeta^b) =
+  \frac{1}{m} \sum_{b=1}^{m/2} A_b (l_k(\zeta^b) + \chi(-1) l_k(\zeta^{-b})).  \]
+
+  (c) If $(b, m) = 1$, i.e. $b \in (\ZZ / m \ZZ) ^ \times$. Then
+
+  \[G(\chi, \zeta^{-b}) = \sum_{c \bmod m} \chi(c) \zeta^{-bc} =
+  \sum_{b^{-1} c \bmod m} \chi(b^{-1}c) \zeta^{-c} = \overline{\chi}(b)
+  \sum_{c \bmod m} \chi(c) \zeta^{-c} = \overline{\chi}(b) G(\chi, \zeta^{-1}).  \]
+
+  If $(b, m) = d > 1$, then primitivity implies that there is a unit $u \bmod m$ such that
+  \[ u \equiv 1 \pmod{m / d}, \ \chi(u) \neq 1. \]
+
+  Otherwise, $\chi$ factors through $\ZZ / \frac{m}{d}\ZZ$, which contradicts to the fact that the
+  conductor of $\chi$ is $m$. Since $u \equiv 1 \pmod{m / d}$, then $bu \equiv b \pmod{m}$. Therefore,
+  $A_b=\chi(u) A_b$. It follows that $A_b = 0$. And we have the fact that $\overline{\chi}(b) = 0$.
+  Then $G(\chi, \zeta^{-b}) = 0 = \overline{\chi}(b) G(\chi, \zeta^{-1})$.
+
+  Recall that the formula in Prop 7.26 is
+
+  \[L(1, \chi) = - \frac{g(\chi)}{m}\sum_{a \bmod m} \overline{\chi}(a)
+  \log (1 - e ^ {- 2\pi i a / m}), \]
+  where $g(\chi) = \sum_{a \bmod m} \chi(a) e^{2\pi i a / m}$.
+  Specialize $k = 1$ in equation \eqref{eq: ex14b}, then we have that
+
+  \[L(1, \chi) = \frac{1}{m} \sum_{b = 0}^{m-1} G(\chi, \zeta^{-b}) l_1(\zeta^b) =
+  \frac{1}{m}\sum_{b=0}^{m-1} \overline{\chi}(b) G(\chi, \zeta^{-1}) l_1(\zeta^b) =
+  -\frac{G(\chi, \zeta)}{m} \sum_{b=0}^{m-1} \overline{\chi}(b) \log(1 - \zeta^{-b}). \]
+
+
+\end{proof}
+
 \begin{exercise}[15]
   \label{ex:ch7-15}
   Let $\chi$ be a Dirichlet character of conductor $m \ge 1$. As above, put
