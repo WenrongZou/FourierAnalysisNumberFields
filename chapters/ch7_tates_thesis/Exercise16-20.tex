@@ -24,13 +24,106 @@
     % rational prime.
     \item Let $\mathscr{P}_K^1$ denote the set of degree-one primes of $K$;
       that is, prime ideals $P$ of $\gotho_K$ such that $N(P)$ is a rational
-      prime. Show that for any set $S$ of primes,
+      prime. Equivalently, the residue degree $f(P/p)$ is one, where $p$
+      is the rational prime below $P$. Show that for any set $S$ of primes,
       $\underline{\delta}(S \cap \mathscr{P}_K^1) = \underline{\delta}(S)$
       and $\overline{\delta}(S \cap \mathscr{P}_K^1) = \overline{\delta}(S)$.
       Conclude that the set of primes in $\gotho_K$ of degree greater than
       one has density zero.
   \end{enumerate}
 \end{exercise}
+
+\begin{proof}
+  Let $\mathscr{P}_K$ denote the set of all nonzero prime ideals of $\gotho_K$.
+  Recall from \RV{Proposition 7-31}, part~(ii), that
+  \[
+    \lim_{s \to 1^+}
+    \frac{\sum_{P \in \mathscr{P}_K} N(P)^{-s}}{\log\frac{1}{s-1}} = 1.
+  \]
+  For any $S \subseteq \mathscr{P}_K$, put
+  \[
+    D_S(s) = \frac{\sum_{P \in S} N(P)^{-s}}{\log\frac{1}{s-1}},
+    \qquad 1 < s < 2.
+  \]
+  The denominator is positive on this interval, and tends to $+\infty$ as
+  $s \to 1^+$.
+
+  (a) Since all summands are nonnegative, we have
+  \[
+    0 \le D_S(s) \le D_{\mathscr{P}_K}(s).
+  \]
+  By the recalled proposition, $D_{\mathscr{P}_K}(s) \to 1$ as $s \to 1^+$.
+  Hence $D_S(s)$ is bounded in some right neighborhood of $1$, so its
+  $\liminf$ and $\limsup$ exist as finite real numbers. Moreover,
+  \[
+    0 \le \underline{\delta}(S) \le \overline{\delta}(S) \le 1.
+  \]
+
+  (b) By definition, $S$ has Dirichlet density if and only if
+  $\lim_{s \to 1^+} D_S(s)$ exists. By (a), this is equivalent to
+  \[
+    \liminf_{s \to 1^+} D_S(s) = \limsup_{s \to 1^+} D_S(s),
+  \]
+  that is, $\underline{\delta}(S) = \overline{\delta}(S)$. In this case,
+  their common value is $\delta(S)$.
+
+  (c) Since $T$ is finite,
+  \[
+    \sum_{P \in T} N(P)^{-s}
+    \longrightarrow \sum_{P \in T} \frac{1}{N(P)} < \infty
+    \qquad \text{as } s \to 1^+.
+  \]
+  Since $\log\frac{1}{s-1} \to +\infty$, it follows that $D_T(s) \to 0$.
+  Thus every finite set of primes has Dirichlet density zero. Now
+  \[
+    0 \le D_{S \cup T}(s) - D_S(s)
+    = D_{T \setminus S}(s) \le D_T(s) \longrightarrow 0.
+  \]
+  Therefore $D_{S \cup T}$ and $D_S$ have the same $\liminf$ and $\limsup$
+  as $s \to 1^+$, giving
+  \[
+    \underline{\delta}(S \cup T) = \underline{\delta}(S),
+    \qquad
+    \overline{\delta}(S \cup T) = \overline{\delta}(S).
+  \]
+
+  (d) Put $n = [K : \QQ]$ and let
+  \[
+    T = \mathscr{P}_K \setminus \mathscr{P}_K^1
+      = \{P \in \mathscr{P}_K : f(P/p) \ge 2\},
+  \]
+  where $p$ is the rational prime below $P$ and $f(P/p)$ is the residue
+  degree. For $P \in T$, we have $N(P) = p^{f(P/p)} \ge p^2$.
+  Also, there are at most $n$ prime ideals above each rational prime $p$,
+  since
+  \[
+    \sum_{P \mid p} e(P/p) f(P/p) = n.
+  \]
+  Consequently, for every real $s > 1$,
+  \begin{align*}
+    0 \le \sum_{P \in T} N(P)^{-s}
+    &= \sum_p \sum_{\substack{P \mid p \\ f(P/p) \ge 2}}
+      p^{-f(P/p)s} \\
+    &\le n \sum_p p^{-2s}
+    \le n \sum_{m=2}^{\infty} m^{-2} < \infty.
+  \end{align*}
+  The last upper bound is independent of $s$, so $D_T(s) \to 0$ as
+  $s \to 1^+$. Thus the set of primes of degree greater than one has
+  Dirichlet density zero.
+
+  For any $S \subseteq \mathscr{P}_K$, the disjoint decomposition
+  $S = (S \cap \mathscr{P}_K^1) \sqcup (S \cap T)$ gives
+  \[
+    0 \le D_S(s) - D_{S \cap \mathscr{P}_K^1}(s)
+    = D_{S \cap T}(s) \le D_T(s) \longrightarrow 0.
+  \]
+  Taking $\liminf$ and $\limsup$ as $s \to 1^+$, we conclude that
+  \[
+    \underline{\delta}(S \cap \mathscr{P}_K^1) = \underline{\delta}(S),
+    \qquad
+    \overline{\delta}(S \cap \mathscr{P}_K^1) = \overline{\delta}(S).
+  \]
+\end{proof}
 
 \begin{exercise}[17]
   \label{ex:ch7-17}
